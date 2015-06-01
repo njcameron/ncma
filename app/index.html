@@ -36,20 +36,19 @@
 
 <body ontouchstart ng-controller="MainCtrl as main">
 
-<div class="container">
+<div class="container-fluid">
   <section ng-include="'views/partials/header.html'"></section>
 
-  <section ng-include='"views/partials/banner.html"'></section>
+  <section ng-include='"views/partials/banner.html"' id="banner"></section>
 
-  <section ng-include='"views/partials/about.html"'></section>
+  <section ng-include='"views/partials/about.html"' id="about"></section>
 
-  <section ng-include='"views/partials/work.html"' ng-controller="WorkCtrl"></section>
+  <section ng-include='"views/partials/work.html"' ng-controller="WorkCtrl" id="work"></section>
 
-  <section ng-include='"views/partials/blog.html"' ng-controller="BlogCtrl"></section>
+  <section ng-include='"views/partials/blog.html"' ng-controller="BlogCtrl" id="blog"></section>
 
-  <section ng-include='"views/partials/mailing_list.html"' id="mailing_list"></section>
+  <section ng-include='"views/partials/footer.html"' id="contact"></section>
 
-  <section  ng-include='"views/partials/footer.html"' id="contact"></section>
 </div>
 
 <!-- bower:js -->
