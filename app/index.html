@@ -4,8 +4,9 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>FlatoBs2 - Yet another amazing AngularJS app!</title>
-  <meta name="description" content="Yet another amazing AngularJS app!">
+  <title>Neil Cameron - Drupal | London | Contractor | Consultant</title>
+  <meta name="description" content="Neil Cameron is a freelance consultant and developer
+    focused on building team and building products.">
 
   <!-- Sets initial viewport load and disables zooming  -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,8 +17,9 @@
   <meta name="apple-mobile-web-app-title" content="">
 
   <!-- Properties for Google+ snippets -->
-  <meta property="og:title" content="">
-  <meta property="og:description" content="Yet another amazing AngularJS app!">
+  <meta property="og:title" content="Neil Cameron - Drupal | London | Contractor | Consultant">
+  <meta property="og:description" content="Neil Cameron is a freelance consultant and developer
+    focused on building team and building products.">
   <meta property="og:image" content="https://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png">
 
   <link rel="icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
@@ -34,42 +36,27 @@
 
 <body ontouchstart ng-controller="MainCtrl as main">
 
-  <div class="site-wrapper">
-    <div class="site-wrapper-inner">
-      <div class="cover-container">
-        <div class="masthead clearfix">
-          <div class="inner" ng-include="'views/partials/header.html'"></div>
-        </div>
+<div class="container">
+  <section ng-include="'views/partials/header.html'"></section>
 
-        <div class="inner">
-          <section ng-include='"views/partials/banner.html"'></section>
-        </div>
+  <section ng-include='"views/partials/banner.html"'></section>
 
-        <div class="inner">
-          <section ng-include='"views/partials/about.html"'></section>
-        </div>
+  <section ng-include='"views/partials/about.html"'></section>
 
-        <div class="inner">
-          <section ng-include='"views/partials/work.html"' ng-controller="WorkCtrl"></section>
-        </div>
+  <section ng-include='"views/partials/work.html"' ng-controller="WorkCtrl"></section>
 
-        <div class="inner">
-          <section ng-include='"views/partials/blog.html"' ng-controller="BlogCtrl"></section>
-        </div>
+  <section ng-include='"views/partials/blog.html"' ng-controller="BlogCtrl"></section>
 
-        <section id="mailing_list" ng-include='"views/partials/mailing_list.html"'></section>
+  <section ng-include='"views/partials/mailing_list.html"' id="mailing_list"></section>
 
-        <footer id="contact" ng-include='"views/partials/footer.html"'></footer>
+  <section  ng-include='"views/partials/footer.html"' id="contact"></section>
+</div>
 
-      </div>
-    </div>
-  </div>
+<!-- bower:js -->
+<!-- endinject -->
 
-  <!-- bower:js -->
-  <!-- endinject -->
-
-  <!-- inject:js -->
-  <!-- endinject -->
+<!-- inject:js -->
+<!-- endinject -->
 
 </body>
 

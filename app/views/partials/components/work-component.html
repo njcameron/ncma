@@ -8,32 +8,25 @@
 </a>
 
 <!-- Popup -->
-<div class="work-article-container" style="display: none">
-  <article class="work-article">
-    <div class="wrapper">
-      <div class="row">
-        <h4>{{work.field_project_title[0].value}}</h4>
-        <span class="client">{{work.field_client[0].value}}</span>
-      </div>
-      <div class="row gutters">
-        <!-- START COLUMN 6/12 -->
-        <div class="col span_6">
-          <div ng-bind-html="work.field_work_col_1[0].value | mysce"></div>
-          <a class="button"
-             ng-show="{{work.field_project_link[0].value != ''}}"
-             href="{{work.field_project_link[0].value}}"
-             target="_blank">
-            View Project
-          </a>
-        </div>
-        <!-- END COLUMN 6/12 -->
+<article class="work-article">
+  <div class="row">
+    <h4>{{work.field_project_title[0].value}}</h4>
+    <span class="client">{{work.field_client[0].value}}</span>
+  </div>
 
-        <!-- START COLUMN 6/12 -->
-        <div class="col span_6">
-          <div ng-bind-html="work.field_work_col_2[0].value | mysce"></div>
-        </div>
-        <!-- END COLUMN 6/12 -->
-      </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div ng-bind-html="work.field_work_col_1[0].value | mysce"></div>
+      <a class="btn btn-default"
+         role="button"
+         ng-show="{{work.field_project_link[0].value != ''}}"
+         href="{{work.field_project_link[0].value}}"
+         target="_blank">
+        View Project
+      </a>
     </div>
-  </article>
-</div>
+    <div class="col-md-6">
+      <div ng-bind-html="work.field_work_col_2[0].value | mysce"></div>
+    </div>
+  </div>
+</article>

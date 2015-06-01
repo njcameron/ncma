@@ -1,14 +1,11 @@
 <div class="layer">
   <a href="#/blog/post/{{blog.nid[0].value}}" class="button bold-subtitle">Read</a>
 </div>
-<img class="prev-img blog-teaser-img"
-     src="{{blog.thumbnail}}"
-     alt=""/>
+
+<img class="blog-component-img" src="{{blog.thumbnail}}" alt=""/>
+
 <div class="text">
-  <h4 class="underline">
-    {{blog.title[0].value}}
-  </h4>
-  <span class="bold-subtitle" ng-bind-html="blog.field_teaser[0].value | mysce"></span>
-  <br/>
-  <span class="bold-subtitle">{{blog.created[0].date | date:'d MMM yyyy'}}</span>
+  <h4>{{blog.title[0].value}}</h4>
+  <div class="bold-subtitle" ng-bind-html="blog.field_teaser[0].value | mysce"></div>
+  <div class="bold-subtitle">{{blog.created[0].date | date:'d MMM yyyy'}}</div>
 </div>

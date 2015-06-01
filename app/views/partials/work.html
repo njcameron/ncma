@@ -1,11 +1,9 @@
-<div class="headline-wrapper">
-  <div class="row">
-    <h1 class="underline">
-      {{start.work.work_title}}
-    </h1>
-    <p class="undertitle">
+<div class="row">
+  <div class="fbs-divider">
+    <h1>{{start.work.work_title}}</h1>
+    <div class="undertitle">
       {{start.work.work_blurb}}
-    </p>
+    </div>
   </div>
 </div>
 
@@ -19,8 +17,6 @@
   </div>
 </div>
 
-<div class="work-container ">
-  <ul id="work-preview">
-    <li class="work-component" ng-repeat="work in works|limitTo:6" ng-include='"views/partials/components/work-component.html"'></li>
-  </ul>
+<div class="row">
+  <div class="col-md-4" ng-repeat="work in works|limitTo:6" ng-include='"views/partials/components/work-component.html"'></div>
 </div>
