@@ -1,0 +1,31 @@
+{
+  "name": "flato-bs2",
+  "version": "0.1.0",
+  "description": "Yet another amazing AngularJS app!",
+  "keywords": [
+    "angular"
+  ],
+  "homepage": "https://github.com/njcameron/flato-bs2",
+  "bugs": "https://github.com/njcameron/flato-bs2/issues",
+  "author": {
+    "name": "Neil Cameron",
+    "email": "neil.cameron@cameronandwilding.com",
+    "url": "https://github.com/njcameron"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/njcameron/flato-bs2.git"
+  },
+   "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "git://github.com/gulpjs/gulp.git#4.0",
+    "ng-factory": "^1.0",
+    "undertaker-app-tasks": "^0.2.6",
+    "factory-angular-channels": "^0.7.1"
+  }
+}

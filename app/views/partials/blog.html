@@ -1,0 +1,22 @@
+<div class="headline-wrapper">
+  <div class="row">
+    <h1 class="underline">
+      {{start.blog.blog_title}}
+    </h1>
+    <p class="undertitle">
+      {{start.blog.blog_blurb}}
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <ul id="blog-preview" ng-repeat="blog in blogs|limitTo:5">
+    <li ng-include='"views/partials/components/blog-component.html"'></li>
+  </ul>
+
+  <div id="blog-load-more" class="blog-button">
+    <a class="button border" href="#/blog/archive">
+      See all
+    </a>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="njcameron.FlatoBs2">
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>FlatoBs2 - Yet another amazing AngularJS app!</title>
+  <meta name="description" content="Yet another amazing AngularJS app!">
+
+  <!-- Sets initial viewport load and disables zooming  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Set a shorter title for iOS6 devices when saved to home screen -->
+  <meta name="apple-mobile-web-app-title" content="">
+
+  <!-- Properties for Google+ snippets -->
+  <meta property="og:title" content="">
+  <meta property="og:description" content="Yet another amazing AngularJS app!">
+  <meta property="og:image" content="https://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png">
+
+  <link rel="icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
+
+
+  <!-- bower:css -->
+  <!-- endinject -->
+
+  <!-- inject:css -->
+  <!-- endinject -->
+
+</head>
+
+<body ontouchstart ng-controller="MainCtrl as main">
+
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+        <div class="masthead clearfix">
+          <div class="inner" ng-include="'views/partials/header.html'"></div>
+        </div>
+
+        <div class="inner">
+          <section ng-include='"views/partials/banner.html"'></section>
+        </div>
+
+        <div class="inner">
+          <section ng-include='"views/partials/about.html"'></section>
+        </div>
+
+        <div class="inner">
+          <section ng-include='"views/partials/work.html"' ng-controller="WorkCtrl"></section>
+        </div>
+
+        <div class="inner">
+          <section ng-include='"views/partials/blog.html"' ng-controller="BlogCtrl"></section>
+        </div>
+
+        <section id="mailing_list" ng-include='"views/partials/mailing_list.html"'></section>
+
+        <footer id="contact" ng-include='"views/partials/footer.html"'></footer>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- bower:js -->
+  <!-- endinject -->
+
+  <!-- inject:js -->
+  <!-- endinject -->
+
+</body>
+
+</html>

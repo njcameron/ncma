@@ -1,0 +1,78 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="njcameron.FlatoBs2">
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>FlatoBs2 - Yet another amazing AngularJS app!</title>
+  <meta name="description" content="Yet another amazing AngularJS app!">
+
+  <!-- Sets initial viewport load and disables zooming  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Set a shorter title for iOS6 devices when saved to home screen -->
+  <meta name="apple-mobile-web-app-title" content="">
+
+  <!-- Properties for Google+ snippets -->
+  <meta property="og:title" content="">
+  <meta property="og:description" content="Yet another amazing AngularJS app!">
+  <meta property="og:image" content="https://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png">
+
+  <link rel="icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
+
+
+  <!-- bower:css -->
+  <link rel="stylesheet" href="styles/libs.min.css">
+  <!-- endinject -->
+
+  <!-- inject:css -->
+  <link rel="stylesheet" href="styles/app.min.css">
+  <!-- endinject -->
+
+</head>
+
+<body ontouchstart="" ng-controller="MainCtrl as main">
+
+  <div class="site-wrapper">
+    <div class="site-wrapper-inner">
+      <div class="cover-container">
+        <div class="masthead clearfix">
+          <div class="inner">
+<!-- ngInclude: 'views/partials/header.html' -->
+<h3 class="masthead-brand">Cover~{{&#xA0;main.version }}{{ main.path() }}</h3>
+<ul class="nav masthead-nav" bs-nav="">
+  <li ng-class="{active: $path() == &apos;/&apos;}"><a href="#/">Home</a></li>
+  <li ng-class="{active: $path() == &apos;/features&apos;}"><a href="#/features">Features</a></li>
+  <li ng-class="{active: $path() == &apos;/contact&apos;}"><a href="#/contact">Contact</a></li>
+</ul>
+<!--/ngInclude: 'views/partials/header.html' -->
+</div>
+        </div>
+        <div class="inner cover">
+          <div class="inner" ng-view=""></div>
+        </div>
+        <div class="mastfoot">
+          <div class="inner">
+<!-- ngInclude: 'views/partials/footer.html' -->
+<p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+<!--/ngInclude: 'views/partials/footer.html' -->
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- bower:js -->
+  <script src="scripts/libs.min.js"></script>
+  <!-- endinject -->
+
+  <!-- inject:js -->
+  <script src="scripts/app.min.js"></script>
+  <!-- endinject -->
+
+</body>
+
+</html>
