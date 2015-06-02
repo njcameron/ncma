@@ -1,18 +1,33 @@
 'use strict';
 
-angular.module('njcameron.FlatoBs2')
+var app = angular.module('njcameron.FlatoBs2');
 
-  .directive('ngHelloWorld', function() {
+/*
+ * Directional hover plugin.
+ */
+app.directive('directionalHover', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+      // Set hover direction.
+      $(element).hoverdir({hoverDelay: 50, hoverElem: '.layer'});
 
-    return {
-      restrict: 'EAC',
-      scope: true,
-      compile: function compile(tElement, tAttrs) {
-        tElement.html('<span>hello {{name}}</span>');
-        return function postLink(scope, element, attrs, controller) {
-          scope.name = 'world';
-        };
-      }
-    };
+      // Set blur on image.
+      $(element).mouseenter(function() {
+        var that = this;
 
-  });
+        setTimeout(function(){
+          var workImage = $(that).find('.work-component-image');
+          workImage.addClass('blur');
+        },250);
+
+      });
+
+      $(element).mouseleave(function() {
+        var workImage = $(this).find('.work-component-image');
+        workImage.removeClass('blur');
+      });
+
+    }
+  };
+});

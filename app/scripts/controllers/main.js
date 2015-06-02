@@ -16,11 +16,10 @@ app.controller('MainCtrl', function($location, version, $http, $scope, API_URL, 
   $http.get(API_URL + CONFIG_PATH).
     success(function (data) {
       $scope.start = data;
-      $scope.pageClass = 'page-home';
     }).
     error(function (data, status, headers, config) {
       // log error
-    });
+    })
 
 });
 

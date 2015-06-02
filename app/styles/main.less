@@ -1,4 +1,5 @@
 @import (reference) "../bower_components/bootstrap/less/bootstrap";
+@import (css) "skillbar.css";
 
 @font-face {
   font-family: 'gibsonlightregular';
@@ -27,13 +28,17 @@
 **/
 #banner {
   width: 100%;
-  height: 100%;
+  height:100vh;
   text-align: center;
+
+  .banner-wrapper {
+    padding-top: 20vh;
+  }
 
   .big-text {
     display: block;
     font-weight: 600;
-    font-size: 7em;
+    font-size: 8.5em;
     letter-spacing: 0px;
     -webkit-font-smoothing: antialiased;
     font-family: gibsonbold;
@@ -42,16 +47,20 @@
 
   .small-text {
     display: block;
-    font-size: 1.75em;
+    font-size: 2em;
     text-transform: uppercase;
   }
 
   .button-wrapper {
-    margin-top:3em;
+    margin-top: 5em;
   }
 }
 
 #work {
+  .fbs-divider {
+    margin-bottom: 0;
+  }
+
   .work-component-image {
     max-width: 100%;
   }
@@ -59,14 +68,35 @@
   .work-article {
     display: none;
   }
+
+.work-component{
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+  .layer {
+    position: absolute;
+    background: rgba(150,150,150,0.15);
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    left: 100%;
+    overflow: hidden;
+    text-align: center;
+    color: black;
+    padding-top: 25%;
+  }
 }
 
 #blog {
-  .blog-component-image {
-    max-width: 100%;
+  .fbs-divider {
+    margin-top: 0;
   }
 
 
+  .blog-component-image {
+    max-width: 100%;
+  }
 }
 
 /**
@@ -75,10 +105,39 @@
 .fbs-divider {
   min-height: 200px;
   background-color: lightgray;
-  width: 100%
+  width: 100%;
+  margin: 50px 0;
 }
 
+/**
+  * Typography
+**/
+h1, h2, h3, h4 {
+  font-weight: 600;
+  font-size: 4em;
+  line-height: 1.5;
+  font-family: gibsonbold;
+  letter-spacing: -2px;
+  -webkit-font-smoothing: antialiased;
+}
 
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+.undertitle {
+  font-size: 1.5em;
+  font-weight: 200;
+  -webkit-font-smoothing: antialiased;
+}
+
+/**
+  * Buttons.
+**/
 .button {
   display: inline-block;
   padding: 20px 60px;
@@ -107,14 +166,22 @@
     background: none;
   }
 
-  :hover {
+  &:hover {
     background: #56c16b;
     border: 2px solid #56c16b;
   }
 
-  .border:hover {
+  .border&:hover {
     color: #48a65b;
     border: 2px solid #48a65b;
     background: none;
   }
+
+  a&:hover {
+    text-decoration: none;
+  }
+}
+
+.blur {
+  -webkit-filter: blur(5px);
 }

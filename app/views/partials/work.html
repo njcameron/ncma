@@ -13,6 +13,6 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-4" ng-repeat="work in works|limitTo:6" ng-include='"views/partials/components/work-component.html"'></div>
+<div class="row" id="work-components">
+  <div class="col-md-4 work-component" ng-repeat="work in works|limitTo:6" ng-include='"views/partials/components/work-component.html"' directional-hover></div>
 </div>

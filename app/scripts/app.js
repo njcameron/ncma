@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('njcameron.FlatoBs2', ['ngAnimate', 'ngRoute', 'ngSanitize'])
+angular.module('njcameron.FlatoBs2', ['ngAnimate', 'ngRoute', 'ngSanitize', 'smoothScroll', 'mgcrea.ngStrap'])
 
   .constant('version', 'v0.1.0')
 

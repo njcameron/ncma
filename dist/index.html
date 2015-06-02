@@ -4,8 +4,9 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>FlatoBs2 - Yet another amazing AngularJS app!</title>
-  <meta name="description" content="Yet another amazing AngularJS app!">
+  <title>Neil Cameron - Drupal | London | Contractor | Consultant</title>
+  <meta name="description" content="Neil Cameron is a freelance consultant and developer
+    focused on building team and building products.">
 
   <!-- Sets initial viewport load and disables zooming  -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,8 +17,9 @@
   <meta name="apple-mobile-web-app-title" content="">
 
   <!-- Properties for Google+ snippets -->
-  <meta property="og:title" content="">
-  <meta property="og:description" content="Yet another amazing AngularJS app!">
+  <meta property="og:title" content="Neil Cameron - Drupal | London | Contractor | Consultant">
+  <meta property="og:description" content="Neil Cameron is a freelance consultant and developer
+    focused on building team and building products.">
   <meta property="og:image" content="https://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png">
 
   <link rel="icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
@@ -36,42 +38,32 @@
 
 <body ontouchstart="" ng-controller="MainCtrl as main">
 
-  <div class="site-wrapper">
-    <div class="site-wrapper-inner">
-      <div class="cover-container">
-        <div class="masthead clearfix">
-          <div class="inner">
+<div class="container-fluid">
+  <section>
 <!-- ngInclude: 'views/partials/header.html' -->
-<h3 class="masthead-brand">Cover~{{&#xA0;main.version }}{{ main.path() }}</h3>
-<ul class="nav masthead-nav" bs-nav="">
-  <li ng-class="{active: $path() == &apos;/&apos;}"><a href="#/">Home</a></li>
-  <li ng-class="{active: $path() == &apos;/features&apos;}"><a href="#/features">Features</a></li>
-  <li ng-class="{active: $path() == &apos;/contact&apos;}"><a href="#/contact">Contact</a></li>
-</ul>
+
 <!--/ngInclude: 'views/partials/header.html' -->
-</div>
-        </div>
-        <div class="inner cover">
-          <div class="inner" ng-view=""></div>
-        </div>
-        <div class="mastfoot">
-          <div class="inner">
-<!-- ngInclude: 'views/partials/footer.html' -->
-<p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-<!--/ngInclude: 'views/partials/footer.html' -->
-</div>
-        </div>
-      </div>
-    </div>
-  </div>
+</section>
 
-  <!-- bower:js -->
-  <script src="scripts/libs.min.js"></script>
-  <!-- endinject -->
+  <section ng-include="&quot;views/partials/banner.html&quot;" id="banner"></section>
 
-  <!-- inject:js -->
-  <script src="scripts/app.min.js"></script>
-  <!-- endinject -->
+  <section ng-include="&quot;views/partials/about.html&quot;" id="about"></section>
+
+  <section ng-include="&quot;views/partials/work.html&quot;" ng-controller="WorkCtrl" id="work"></section>
+
+  <section ng-include="&quot;views/partials/blog.html&quot;" ng-controller="BlogCtrl" id="blog"></section>
+
+  <section ng-include="&quot;views/partials/footer.html&quot;" id="contact"></section>
+
+</div>
+
+<!-- bower:js -->
+<script src="scripts/libs.min.js"></script>
+<!-- endinject -->
+
+<!-- inject:js -->
+<script src="scripts/app.min.js"></script>
+<!-- endinject -->
 
 </body>
 

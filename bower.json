@@ -16,7 +16,7 @@
     "type": "git",
     "url": "https://github.com/njcameron/flato-bs2.git"
   },
-   "licenses": [
+  "licenses": [
     {
       "type": "MIT"
     }
@@ -27,6 +27,11 @@
     "angular-animate": "~1.3.0",
     "angular-route": "~1.3.0",
     "angular-sanitize": "~1.3.0",
-    "angular": "~1.3.0"
+    "angular": "~1.3.0",
+    "ngSmoothScroll": "~1.7.1",
+    "jquery": "~2.1.4",
+    "waypoints": "~3.1.1",
+    "DirectionAwareHoverEffect": "*",
+    "angular-strap": "~2.2.4"
   }
 }

@@ -2,8 +2,8 @@
 <a>
   <img class="work-component-image" src="{{work.thumbnail}}" alt="" />
   <div class="layer">
-    <h4 class="underline">{{work.field_project_name[0].value}}</h4>
-    <span class="client bold-subtitle">{{work.field_project_sub_title[0].value}}</span>
+    <h2>{{work.field_project_name[0].value}}</h2>
+    <span class="undertitle">{{work.field_project_sub_title[0].value}}</span>
   </div>
 </a>
 
@@ -25,6 +25,7 @@
         View Project
       </a>
     </div>
+
     <div class="col-md-6">
       <div ng-bind-html="work.field_work_col_2[0].value | mysce"></div>
     </div>
