@@ -1,33 +1,8 @@
 <!-- Thumbnail -->
-<a>
+<a href="" data-template="views/partials/components/work-modal.html" bs-modal>
   <img class="work-component-image" src="{{work.thumbnail}}" alt="" />
   <div class="layer">
     <h2>{{work.field_project_name[0].value}}</h2>
     <span class="undertitle">{{work.field_project_sub_title[0].value}}</span>
   </div>
 </a>
-
-<!-- Popup -->
-<article class="work-article">
-  <div class="row">
-    <h4>{{work.field_project_title[0].value}}</h4>
-    <span class="client">{{work.field_client[0].value}}</span>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6">
-      <div ng-bind-html="work.field_work_col_1[0].value | mysce"></div>
-      <a class="btn btn-default"
-         role="button"
-         ng-show="{{work.field_project_link[0].value != ''}}"
-         href="{{work.field_project_link[0].value}}"
-         target="_blank">
-        View Project
-      </a>
-    </div>
-
-    <div class="col-md-6">
-      <div ng-bind-html="work.field_work_col_2[0].value | mysce"></div>
-    </div>
-  </div>
-</article>

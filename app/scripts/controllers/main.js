@@ -41,6 +41,7 @@ app.controller("WorkCtrl", function ($scope, $http, $sce, API_URL, WORK_PATH, FI
     error(function (data, status, headers, config) {
       // log error
     });
+
 });
 
 

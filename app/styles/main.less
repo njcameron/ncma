@@ -56,6 +56,9 @@
   }
 }
 
+/**
+  * Work.
+**/
 #work {
   .fbs-divider {
     margin-bottom: 0;
@@ -88,6 +91,41 @@
   }
 }
 
+.modal-dialog {
+  width: 80%;
+
+  #close-work-modal {
+    display: block;
+    color: #d3d3d3;
+    position: absolute;
+    right: 12px;
+    cursor: pointer;
+    font-size: 2em;
+    z-index: 100;
+  }
+
+  .modal-body {
+    padding: 10px 35px 35px 35px;
+  }
+
+  h2 {
+    margin: 0.5em auto 0.1em auto;
+    line-height: 1;
+  }
+
+  .undertitle {
+    margin-bottom: 1.2em;
+  }
+}
+
+.modal-backdrop {
+  background-color: rgba(176, 176, 176, 0.85);
+}
+
+
+/**
+  * Blog.
+**/
 #blog {
   .fbs-divider {
     margin-top: 0;
@@ -112,9 +150,12 @@
 /**
   * Typography
 **/
+body {
+ font-size: 15px;
+}
+
 h1, h2, h3, h4 {
   font-weight: 600;
-  font-size: 4em;
   line-height: 1.5;
   font-family: gibsonbold;
   letter-spacing: -2px;

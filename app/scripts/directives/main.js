@@ -12,20 +12,27 @@ app.directive('directionalHover', function() {
       // Set hover direction.
       $(element).hoverdir({hoverDelay: 50, hoverElem: '.layer'});
 
-      // Set blur on image.
+      // Set blur on image on mouse over.
       $(element).mouseenter(function() {
+        var workImage = $(this).find('.work-component-image');
         var that = this;
-
         setTimeout(function(){
-          var workImage = $(that).find('.work-component-image');
-          workImage.addClass('blur');
+          $(that).find('.work-component-image').addClass('blur');
         },250);
 
       });
 
+      // On mouse leave remove blur.
       $(element).mouseleave(function() {
         var workImage = $(this).find('.work-component-image');
         workImage.removeClass('blur');
+      });
+
+      // On click remove blur and hover layer.
+      $(element).click(function() {
+        var workImage = $(this).find('.work-component-image');
+        workImage.removeClass('blur');
+        $(this).find('.layer').hide();
       });
 
     }
