@@ -3,9 +3,11 @@
 var app = angular.module('njcameron.FlatoBs2')
   .constant('API_URL', "http://ferko.flato.local/")
   .constant('FILES_DIR', "sites/default/files/")
+  .constant('BLOG_THUMB_PATH', "styles/blog_thumbnail/public/")
   .constant('CONFIG_PATH', "api/v1/config/")
   .constant('BLOG_PATH', "api/v1/content/blog/")
-  .constant('WORK_PATH', "api/v1/content/work/");
+  .constant('WORK_PATH', "api/v1/content/work/")
+  .constant('TAXONOMY_PATH', "api/v1/content/category/");
 
 app.controller('MainCtrl', function($location, version, $http, $scope, API_URL, CONFIG_PATH) {
 
@@ -48,21 +50,11 @@ app.controller("WorkCtrl", function ($scope, $http, $sce, API_URL, WORK_PATH, FI
 /**
  * Controller for blog listings.
  */
-app.controller("BlogCtrl", function ($scope, $http, $sce, API_URL, BLOG_PATH, FILES_DIR) {
-  $http.get(API_URL + BLOG_PATH).
-    success(function (data) {
-      $scope.blogs = data;
-      // Convert seconds to milliseconds and generate image links.
-      angular.forEach($scope.blogs, function (value, index) {
-        var dateMs;
-        // Date.
-        dateMs = value.created[0].value * 1000;
-        $scope.blogs[index].created[0].date = dateMs;
-        // Images.
-        $scope.blogs[index].thumbnail = API_URL + FILES_DIR + $scope.blogs[index].field_filename[0].value;
-      });
-    }).
-    error(function (data, status, headers, config) {
-      // log error
+app.controller("BlogCtrl", function ($scope, Blog, BlogPostPreProcess, $sce) {
+  Blog.query(function(data) {
+    $scope.blogs = data;
+    angular.forEach($scope.blogs, function (value, index) {
+      $scope.blogs[index] = BlogPostPreProcess.processBlog(value);
     });
+  });
 });

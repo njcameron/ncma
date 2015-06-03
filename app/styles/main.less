@@ -1,5 +1,7 @@
 @import (reference) "../bower_components/bootstrap/less/bootstrap";
 @import (css) "skillbar.css";
+@import (css) "callouts.css";
+
 
 @font-face {
   font-family: 'gibsonlightregular';
@@ -54,6 +56,14 @@
   .button-wrapper {
     margin-top: 5em;
   }
+}
+
+.trans-layer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /**
@@ -116,6 +126,10 @@
   .undertitle {
     margin-bottom: 1.2em;
   }
+
+  .bs-callout {
+    margin-top: 0px;
+  }
 }
 
 .modal-backdrop {
@@ -131,9 +145,45 @@
     margin-top: 0;
   }
 
+  .blog-thumbnail-wrapper {
+    overflow: hidden;
+    display: block;
+    width:100%;
+    position: relative;
+
+  }
+
+  .blog-thumbnail-wrapper > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    position: relative;
+
+    -webkit-transition: all 0.15s ease;
+    -moz-transition: all 0.15s ease;
+    -o-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+  }
+
+  .thumbnail a.button {
+    display:none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    margin-left:auto;
+    margin-right:auto;
+    z-index: 100;
+  }
+
 
   .blog-component-image {
     max-width: 100%;
+  }
+
+  h6 {
+    margin: 15px 0 5px 0;
   }
 }
 
@@ -156,7 +206,7 @@ body {
 
 h1, h2, h3, h4 {
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.2;
   font-family: gibsonbold;
   letter-spacing: -2px;
   -webkit-font-smoothing: antialiased;
@@ -170,8 +220,18 @@ h2 {
   font-size: 2em;
 }
 
+h3 {
+  font-size: 1.8em;
+}
+
 .undertitle {
   font-size: 1.5em;
+  font-weight: 200;
+  -webkit-font-smoothing: antialiased;
+}
+
+.teaser-text {
+  font-size: 1.25em;
   font-weight: 200;
   -webkit-font-smoothing: antialiased;
 }
@@ -208,17 +268,13 @@ h2 {
   }
 
   &:hover {
-    background: #56c16b;
-    border: 2px solid #56c16b;
-  }
-
-  .border&:hover {
-    color: #48a65b;
-    border: 2px solid #48a65b;
+    border: 2px solid black;
     background: none;
+
   }
 
   a&:hover {
+    color: black;
     text-decoration: none;
   }
 }

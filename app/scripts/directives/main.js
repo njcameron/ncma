@@ -14,7 +14,6 @@ app.directive('directionalHover', function() {
 
       // Set blur on image on mouse over.
       $(element).mouseenter(function() {
-        var workImage = $(this).find('.work-component-image');
         var that = this;
         setTimeout(function(){
           $(that).find('.work-component-image').addClass('blur');
@@ -33,6 +32,42 @@ app.directive('directionalHover', function() {
         var workImage = $(this).find('.work-component-image');
         workImage.removeClass('blur');
         $(this).find('.layer').hide();
+      });
+
+    }
+  };
+});
+
+/*
+ * Blog hover plugin.
+ */
+app.directive('blogHoverThumb', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+
+      // Set blur on image on mouse over.
+      $(element).mouseenter(function() {
+        $(this).find('img').addClass('blur');
+        $(this).find('a.button').show();
+        $(this).find('.trans-layer').show();
+      });
+
+      // On mouse leave remove blur.
+      $(element).mouseleave(function() {
+        var blogTeaser = $(this).find('img');
+        blogTeaser.removeClass('blur');
+        $(this).find('a.button').hide();
+        $(this).find('.trans-layer').hide();
+
+
+      });
+
+      // On click remove blur and hover layer.
+      $(element).click(function() {
+        var blogTeaser = $(this).find('img');
+        blogTeaser.removeClass('blur');
+        $(this).find('a.button').hide();
       });
 
     }

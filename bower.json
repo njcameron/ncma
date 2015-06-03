@@ -32,6 +32,7 @@
     "jquery": "~2.1.4",
     "waypoints": "~3.1.1",
     "DirectionAwareHoverEffect": "*",
-    "angular-strap": "~2.2.4"
+    "angular-strap": "~2.2.4",
+    "angular-resource": "~1.4.0"
   }
 }
