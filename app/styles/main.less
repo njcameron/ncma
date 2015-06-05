@@ -35,6 +35,7 @@
   width: 100%;
   height:100vh;
   text-align: center;
+  color: white;
 
   .banner-wrapper {
     padding-top: 20vh;
@@ -48,6 +49,11 @@
     -webkit-font-smoothing: antialiased;
     font-family: gibsonbold;
     text-transform: uppercase;
+/*
+    background: rgba(255, 227, 25, 0.75);
+    color: #323232;
+    display: inline;
+    margin:auto 40px;*/
   }
 
   .small-text {
@@ -58,7 +64,49 @@
 
   .button-wrapper {
     margin-top: 5em;
+
+    .button {
+      color: white;
+      border: 2px solid white;
+      margin-right: 2em;
+    }
+
+    .button:hover {
+      color: @bright-yellow;
+      border: 2px solid @bright-yellow;
+      margin-right: 2em;
+    }
+
+    .button:last-child {
+      margin-right: 0em;
+    }
   }
+
+}
+.video-overlay {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -5;
+  background: -webkit-linear-gradient(top, rgba(5, 1, 5, 0.3), transparent); /* For Safari 5.1 to 6.0 */
+}
+.video-background video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -10;
 }
 
 .trans-layer {
@@ -68,6 +116,13 @@
   z-index: 50;
   background: rgba(255, 255, 255, 0.15);
 }
+
+#about {
+  .fbs-divider {
+    margin: 0px 0 50px 0;
+  }
+}
+
 
 /**
   * Work.
@@ -223,7 +278,7 @@
 **/
 .fbs-divider {
   min-height: 275px;
-  background-color: lightgray;
+  background-color: #8bc3ee;
   width: 100%;
   margin: 50px 0;
 }
@@ -276,6 +331,9 @@ h5 {
   -webkit-font-smoothing: antialiased;
 }
 
+.tooltip {
+  font-size: 0.9em;
+}
 
 /**
   * Social icons.
@@ -330,7 +388,7 @@ footer {
   padding: 20px 60px;
   color: @text-color;
   border: 2px solid @text-color;
-  font-size: 0.95em;
+  font-size: 1.1em;
   font-weight: 600;
   -webkit-transition: all 0.2s;
   -moz-transition:    all 0.2s;
