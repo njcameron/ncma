@@ -37,22 +37,8 @@
 
 </head>
 
-<body ontouchstart ng-controller="MainCtrl as main">
-
-<div class="container-fluid">
-  <section ng-include="'views/partials/header.html'"></section>
-
-  <section ng-include='"views/partials/banner.html"' id="banner"></section>
-
-  <section ng-include='"views/partials/about.html"' id="about"></section>
-
-  <section ng-include='"views/partials/work.html"' ng-controller="WorkCtrl" id="work"></section>
-
-  <section ng-include='"views/partials/blog.html"' ng-controller="BlogCtrl" id="blog"></section>
-
-  <section ng-include='"views/partials/footer.html"' id="contact"></section>
-
-</div>
+<body ontouchstart>
+  <div ng-view></div>
 
 <!-- bower:js -->
 <!-- endinject -->

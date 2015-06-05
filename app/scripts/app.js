@@ -1,6 +1,14 @@
 'use strict';
 
-angular.module('njcameron.FlatoBs2', ['ngResource', 'ngAnimate', 'ngRoute', 'ngSanitize', 'smoothScroll', 'mgcrea.ngStrap'])
+angular.module('njcameron.FlatoBs2',
+    ['ngResource',
+      'ngAnimate',
+      'ngRoute',
+      'ngSanitize',
+      'smoothScroll',
+      'mgcrea.ngStrap',
+      'angular-parallax'
+    ])
 
   .constant('version', 'v0.1.0')
 
@@ -9,15 +17,16 @@ angular.module('njcameron.FlatoBs2', ['ngResource', 'ngAnimate', 'ngRoute', 'ngS
     $locationProvider.html5Mode(false);
 
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/home.html'
+      .when("/", {
+        templateUrl: "views/home.html",
+        controller: "MainCtrl"
       })
-      .when('/features', {
-        templateUrl: 'views/features.html'
-      })
-      .when('/contact', {
-        templateUrl: 'views/contact.html'
-      })
+
+      .when("/blog/post/:nid", {
+          templateUrl: "views/blog-page.html",
+          controller: "BlogPageCtrl"
+        })
+
       .otherwise({
         redirectTo: '/'
       });

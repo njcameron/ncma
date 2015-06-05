@@ -50,11 +50,22 @@ app.controller("WorkCtrl", function ($scope, $http, $sce, API_URL, WORK_PATH, FI
 /**
  * Controller for blog listings.
  */
-app.controller("BlogCtrl", function ($scope, Blog, BlogPostPreProcess, $sce) {
+app.controller("BlogCtrl", function ($scope, Blog, BlogPostPreProcess) {
   Blog.query(function(data) {
     $scope.blogs = data;
     angular.forEach($scope.blogs, function (value, index) {
       $scope.blogs[index] = BlogPostPreProcess.processBlog(value);
     });
+  });
+});
+
+
+/**
+ * Controller for blog page.
+ */
+app.controller("BlogPageCtrl", function ($scope, BlogPage, BlogPostPreProcess, $routeParams, $sce) {
+  BlogPage.query({nodeId:$routeParams.nid}, function(data) {
+    $scope.blog = BlogPostPreProcess.processBlog(data[0]);
+    console.log($scope.blog);
   });
 });

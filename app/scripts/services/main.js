@@ -59,9 +59,14 @@ app.factory('Blog', function($resource, BASE_URL, BLOG_PATH) {
   return $resource(BASE_URL + BLOG_PATH);
 });
 
+// Blog page API call.
+app.factory('BlogPage', function($resource, BASE_URL, BLOG_PATH) {
+  return $resource(BASE_URL + BLOG_PATH + ':nodeId');
+});
+
 // Taxonomy term name API call.
 app.factory('Terms', function($resource, BASE_URL, TAXONOMY_PATH) {
-  return $resource(BASE_URL + TAXONOMY_PATH + '1');
+  return $resource(BASE_URL + TAXONOMY_PATH + ':termId');
 });
 
 
@@ -79,19 +84,12 @@ app.service('BlogPostPreProcess', function(Terms, BASE_URL, FILES_DIR, BLOG_THUM
     return BASE_URL + FILES_DIR + BLOG_THUMB_PATH + fileName;
   };
 
-  // Get the category name.
-  this.processCategory = function(field_category) {
-
-    if (field_category[0]) {
-      var termId = field_category[0].target_id;
-      var categoryObj = Terms.query({termId:termId}, function() {
-        return categoryObj[0].name[0].value;
-        //@todo why is this d8 and then blank???
-      });
-    }
+  // Build full image URL based on image style.
+  this.processFullImage = function(fileName) {
+    return BASE_URL + FILES_DIR + fileName;
   };
 
-
+  // Main processing function.
   this.processBlog = function(blogPost) {
     // Date.
     blogPost.created[0].date = this.processDate(blogPost.created[0].value);
@@ -99,9 +97,21 @@ app.service('BlogPostPreProcess', function(Terms, BASE_URL, FILES_DIR, BLOG_THUM
     // Thumbnail images.
     blogPost.thumbnail = this.processThumbnail(blogPost.field_filename[0].value);
 
-    // Get taxonomy terms name from API for a give
-    blogPost.category = this.processCategory(blogPost.field_category);
-    console.log(blogPost.category);
+    // Full images.
+    blogPost.fullImage = this.processFullImage(blogPost.field_filename[0].value);
+
+    var cat = blogPost.field_category;
+    // Terms.
+    if (Object.keys(cat).length > 0) {
+
+      var termId = blogPost.field_category[0];
+      console.log(blogPost.field_category);
+      var termOb = Terms.query({termId:blogPost.field_category[0].target_id});
+      //  blogPost.category = termOb[0].name[0].value;
+
+
+    }
+
     return blogPost
   };
 });
