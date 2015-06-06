@@ -43,17 +43,10 @@ app.provider('config', function($provide) {
 
 });
 
-/*
- * Reusable HTML filter.
- */
-app.filter('mysce', function ($sce) {
-  return $sce.trustAsHtml;
-});
 
 /*
  * API Service.
  */
-
 // Blog posts API call.
 app.factory('Blog', function($resource, BASE_URL, BLOG_PATH) {
   return $resource(BASE_URL + BLOG_PATH);
@@ -88,6 +81,8 @@ app.service('BlogPostPreProcess', function(Terms, BASE_URL, FILES_DIR, BLOG_THUM
   this.processFullImage = function(fileName) {
     return BASE_URL + FILES_DIR + fileName;
   };
+
+
 
   // Main processing function.
   this.processBlog = function(blogPost) {

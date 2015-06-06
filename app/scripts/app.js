@@ -7,7 +7,8 @@ angular.module('njcameron.FlatoBs2',
       'ngSanitize',
       'smoothScroll',
       'mgcrea.ngStrap',
-      'angular-parallax'
+      'angular-parallax',
+      'viewhead'
     ])
 
   .constant('version', 'v0.1.0')

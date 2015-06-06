@@ -34,6 +34,7 @@
     "DirectionAwareHoverEffect": "*",
     "angular-strap": "~2.2.4",
     "angular-resource": "~1.4.0",
-    "angular-parallax": "~0.0.2"
+    "angular-parallax": "~0.0.2",
+    "angularjs-viewhead": "~0.0.1"
   }
 }
