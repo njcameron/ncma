@@ -39,6 +39,8 @@
 
   .banner-wrapper {
     padding-top: 20vh;
+    position: relative;
+    z-index: 100;
   }
 
   .big-text {
@@ -49,11 +51,6 @@
     -webkit-font-smoothing: antialiased;
     font-family: gibsonbold;
     text-transform: uppercase;
-/*
-    background: rgba(255, 227, 25, 0.75);
-    color: #323232;
-    display: inline;
-    margin:auto 40px;*/
   }
 
   .small-text {
@@ -81,8 +78,8 @@
       margin-right: 0em;
     }
   }
-
 }
+
 .video-overlay {
   position: absolute;
   right: 0;
@@ -93,9 +90,10 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  z-index: -5;
-  background: -webkit-linear-gradient(top, rgba(5, 1, 5, 0.3), transparent); /* For Safari 5.1 to 6.0 */
+  z-index: 15 ;
+  background: -webkit-linear-gradient(top, rgba(5, 1, 5, 0.3), transparent);
 }
+
 .video-background video {
   position: absolute;
   right: 0;
@@ -106,7 +104,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  z-index: -10;
+  z-index: 5;
 }
 
 .trans-layer {
@@ -334,6 +332,7 @@ h5 {
 .tooltip {
   font-size: 0.9em;
 }
+
 
 /**
   * Social icons.
