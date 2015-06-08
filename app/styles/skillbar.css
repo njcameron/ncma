@@ -22,6 +22,14 @@
   transition-property:width, background-color;
 }
 
+.skillbar:last-child {
+  margin-bottom:0px;
+}
+
+.skillbar-wrapper {
+  margin-bottom: 17px;
+}
+
 .skillbar-title {
   position:absolute;
   top:0;
@@ -43,8 +51,8 @@
   display:block;
   background:rgba(0, 0, 0, 0.1);
   padding:0 20px;
-  height:28px;
-  line-height:25px;
+  height:30px;
+  line-height:28px;
   -webkit-border-top-left-radius:3px;
   -webkit-border-bottom-left-radius:3px;
   -moz-border-radius-topleft:3px;
@@ -67,7 +75,7 @@
   right:10px;
   top:0;
   font-size:0.9em;
-  height:25px;
+  height:30px;
   line-height:28px;
   color:#ffffff;
   color:rgba(0, 0, 0, 0.4);
