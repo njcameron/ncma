@@ -18,11 +18,12 @@
     <div class="row">
       <div class="col-md-6">
         <img src="/assets/images/me_sq.jpg" class="about-me-img">
-        {{start.about.about_col_1}}
+        <div ng-bind-html="start.about.about_col_1.value | mysce"></div>
+
       </div>
       <div class="col-md-6">
         <div ng-include='"views/partials/skillbar.html"'></div>
-        {{start.about.about_col_2}}
+        <div ng-bind-html="start.about.about_col_2.value | mysce"></div>
       </div>
     </div>
   </div>
