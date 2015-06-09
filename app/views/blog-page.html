@@ -30,7 +30,7 @@
   <div class="row">
     <div class="col-md-9 blog-post-container">
       <h1 class="" view-title>{{blog.title[0].value}}</h1>
-      <h5 class="blog-post-date">{{blog.created[0].date | date:'d MMM yyyy'}}</h5>
+      <h5 class="blog-post-date">{{blog.date | date:'d MMM yyyy'}}</h5>
       <div class="undertitle" ng-bind-html="blog.field_standfirst[0].value | mysce"> </div>
       <div class="blog-post-body" ng-bind-html="blog.body[0].value | mysce"></div>
     </div>

@@ -7,7 +7,7 @@
 
   <div class="caption">
     <h3>{{blog.title[0].value}}</h3>
-    <h6>{{blog.category}}</h6>
+    <h6 class="term-{{blog.category}}">{{blog.category}}</h6>
     <div class="teaser-text" ng-bind-html="blog.field_teaser[0].value | mysce"></div>
   </div>
 </div>

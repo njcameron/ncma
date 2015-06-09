@@ -60,43 +60,34 @@ app.factory('Terms', function($resource, BASE_URL, TAXONOMY_PATH) {
  * Process blog posts.
  */
 app.service('BlogPostPreProcess', function(Terms, BASE_URL, FILES_DIR, BLOG_THUMB_PATH) {
-  // Takes a value in seconds and returns miliseconds.
-  this.processDate = function(seconds) {
-    return seconds * 1000;
-  };
-
-  // Build thumbnail URL based on image style.
-  this.processThumbnail = function(fileName) {
-    return BASE_URL + FILES_DIR + BLOG_THUMB_PATH + fileName;
-  };
-
-  // Build full image URL based on image style.
-  this.processFullImage = function(fileName) {
-    return BASE_URL + FILES_DIR + fileName;
-  };
-
-
-
-  // Main processing function.
   this.processBlog = function(blogPost) {
     // Date.
-    blogPost.created[0].date = this.processDate(blogPost.created[0].value);
+    blogPost.date = blogPost.created[0].value * 1000;
 
     // Thumbnail images.
-    blogPost.thumbnail = this.processThumbnail(blogPost.field_filename[0].value);
+    blogPost.thumbnail = BASE_URL + FILES_DIR + BLOG_THUMB_PATH + blogPost.field_filename[0].value;
 
     // Full images.
-    blogPost.fullImage = this.processFullImage(blogPost.field_filename[0].value);
+    blogPost.fullImage = BASE_URL + FILES_DIR + blogPost.field_filename[0].value;
 
-    var cat = blogPost.field_category;
-    // Terms.
-    if (Object.keys(cat).length > 0) {
-      var termId = blogPost.field_category[0];
-      console.log(blogPost.field_category);
-      var termOb = Terms.query({termId:blogPost.field_category[0].target_id});
-      //  blogPost.category = termOb[0].name[0].value;
+    // Category.
+    if(Object.size(blogPost.field_category) > 0) {
+      Terms.query({termId:blogPost.field_category[0].target_id}, function(data) {
+        blogPost.category = data[0].name[0].value;
+      });
     }
 
     return blogPost
   };
 });
+
+/*
+ * Helper function to check number of array keys.
+ */
+Object.size = function(obj) {
+  var size = 0, key;
+  for (key in obj) {
+    if (obj.hasOwnProperty(key)) size++;
+  }
+  return size;
+};
