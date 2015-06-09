@@ -10,7 +10,6 @@ var app = angular.module('njcameron.FlatoBs2')
   .constant('TAXONOMY_PATH', "api/v1/content/category/");
 
 app.controller('MainCtrl', function($location, version, $http, $scope, API_URL, CONFIG_PATH) {
-
   var vm = this;
   vm.path = $location.path.bind($location);
   vm.version = version;
@@ -22,7 +21,6 @@ app.controller('MainCtrl', function($location, version, $http, $scope, API_URL, 
     error(function (data, status, headers, config) {
       // log error
     })
-
 });
 
 
@@ -43,7 +41,6 @@ app.controller("WorkCtrl", function ($scope, $http, $sce, API_URL, WORK_PATH, FI
     error(function (data, status, headers, config) {
       // log error
     });
-
 });
 
 
@@ -66,6 +63,5 @@ app.controller("BlogCtrl", function ($scope, Blog, BlogPostPreProcess) {
 app.controller("BlogPageCtrl", function ($scope, BlogPage, BlogPostPreProcess, $routeParams, $sce) {
   BlogPage.query({nodeId:$routeParams.nid}, function(data) {
     $scope.blog = BlogPostPreProcess.processBlog(data[0]);
-    console.log();
   });
 });

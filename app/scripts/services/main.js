@@ -28,13 +28,6 @@ app.provider('config', function($provide) {
   };
   var config = this.config = angular.copy(defaults);
 
-  // var request = new XMLHttpRequest();
-  // request.open('GET', 'config/config.json', false);
-  // request.send(null);
-  // if (request.status === 200) {
-  //   angular.extend(config, JSON.parse(request.responseText));
-  // }
-
   $provide.constant('$version', config.version);
 
   this.$get = function() {
@@ -98,13 +91,10 @@ app.service('BlogPostPreProcess', function(Terms, BASE_URL, FILES_DIR, BLOG_THUM
     var cat = blogPost.field_category;
     // Terms.
     if (Object.keys(cat).length > 0) {
-
       var termId = blogPost.field_category[0];
       console.log(blogPost.field_category);
       var termOb = Terms.query({termId:blogPost.field_category[0].target_id});
       //  blogPost.category = termOb[0].name[0].value;
-
-
     }
 
     return blogPost
