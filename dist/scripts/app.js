@@ -1,53 +1,99 @@
 (function(window, document, undefined) {
   'use strict';
-  angular.module('njcameron.FlatoBs2', [ 'ngAnimate', 'ngRoute', 'ngSanitize', 'smoothScroll' ]).constant('version', 'v0.1.0').config([ '$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+  angular.module('njcameron.FlatoBs2', [ 'ngResource', 'ngAnimate', 'ngRoute', 'ngSanitize', 'smoothScroll', 'mgcrea.ngStrap', 'angular-parallax', 'viewhead' ]).constant('version', 'v0.1.0').config([ '$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.html5Mode(false);
     $routeProvider.when('/', {
-      templateUrl: 'views/home.html'
-    }).when('/features', {
-      templateUrl: 'views/features.html'
-    }).when('/contact', {
-      templateUrl: 'views/contact.html'
+      templateUrl: 'views/home.html',
+      controller: 'MainCtrl'
+    }).when('/blog/post/:nid', {
+      templateUrl: 'views/blog-page.html',
+      controller: 'BlogPageCtrl'
     }).otherwise({
       redirectTo: '/'
     });
   } ]);
-  var app = angular.module('njcameron.FlatoBs2').constant('API_URL', 'http://ferko.flato.local/').constant('FILES_DIR', 'sites/default/files/').constant('CONFIG_PATH', 'api/v1/config/').constant('BLOG_PATH', 'api/v1/content/blog/').constant('WORK_PATH', 'api/v1/content/work/');
-  app.controller('MainCtrl', [ '$location', 'version', '$http', '$scope', 'API_URL', 'CONFIG_PATH', function($location, version, $http, $scope, API_URL, CONFIG_PATH) {
-    var vm = this;
-    vm.path = $location.path.bind($location);
-    vm.version = version;
-    $http.get(API_URL + CONFIG_PATH).success(function(data) {
+  window.onload = function() {
+    $('#preload_wrapper').animate({
+      opacity: 0
+    }, 300, function() {
+      $('#preload_wrapper').remove();
+    });
+  };
+  var app = angular.module('njcameron.FlatoBs2');
+  app.controller('MainCtrl', [ '$scope', 'Strings', function($scope, Strings) {
+    Strings.get(function(data) {
       $scope.start = data;
-    }).error(function(data, status, headers, config) {});
+    });
   } ]);
-  app.controller('WorkCtrl', [ '$scope', '$http', '$sce', 'API_URL', 'WORK_PATH', 'FILES_DIR', function($scope, $http, $sce, API_URL, WORK_PATH, FILES_DIR) {
-    $http.get(API_URL + WORK_PATH).success(function(data) {
+  app.controller('WorkCtrl', [ '$scope', 'Work', 'WorkPreProcess', function($scope, Work, WorkPreProcess) {
+    Work.query(function(data) {
       $scope.works = data;
       angular.forEach($scope.works, function(value, index) {
-        $scope.works[index].thumbnail = API_URL + FILES_DIR + $scope.works[index].field_filename[0].value;
+        $scope.works[index] = WorkPreProcess.processWork(value);
       });
-    }).error(function(data, status, headers, config) {});
+    });
   } ]);
-  app.controller('BlogCtrl', [ '$scope', '$http', '$sce', 'API_URL', 'BLOG_PATH', 'FILES_DIR', function($scope, $http, $sce, API_URL, BLOG_PATH, FILES_DIR) {
-    $http.get(API_URL + BLOG_PATH).success(function(data) {
+  app.controller('BlogCtrl', [ '$scope', 'Blog', 'BlogPostPreProcess', function($scope, Blog, BlogPostPreProcess) {
+    Blog.query(function(data) {
       $scope.blogs = data;
       angular.forEach($scope.blogs, function(value, index) {
-        var dateMs;
-        dateMs = value.created[0].value * 1e3;
-        $scope.blogs[index].created[0].date = dateMs;
-        $scope.blogs[index].thumbnail = API_URL + FILES_DIR + $scope.blogs[index].field_filename[0].value;
+        $scope.blogs[index] = BlogPostPreProcess.processBlog(value);
       });
-    }).error(function(data, status, headers, config) {});
+    });
   } ]);
-  app.directive('tooltip', function() {
+  app.controller('BlogPageCtrl', [ '$scope', 'BlogPage', 'BlogPostPreProcess', '$routeParams', function($scope, BlogPage, BlogPostPreProcess, $routeParams) {
+    BlogPage.query({
+      nodeId: $routeParams.nid
+    }, function(data) {
+      $scope.blog = BlogPostPreProcess.processBlog(data[0]);
+    });
+  } ]);
+  var app = angular.module('njcameron.FlatoBs2');
+  app.directive('directionalHover', function() {
     return {
       restrict: 'A',
       link: function(scope, element, attrs) {
-        $(element).hover(function() {
-          $(element).tooltip('show');
-        }, function() {
-          $(element).tooltip('hide');
+        $(element).hoverdir({
+          hoverDelay: 50,
+          hoverElem: '.layer'
+        });
+        $(element).mouseenter(function() {
+          var that = this;
+          setTimeout(function() {
+            $(that).find('.work-component-image').addClass('blur');
+          }, 250);
+        });
+        $(element).mouseleave(function() {
+          var workImage = $(this).find('.work-component-image');
+          workImage.removeClass('blur');
+        });
+        $(element).click(function() {
+          var workImage = $(this).find('.work-component-image');
+          workImage.removeClass('blur');
+          $(this).find('.layer').hide();
+        });
+      }
+    };
+  });
+  app.directive('blogHoverThumb', function() {
+    return {
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+        $(element).mouseenter(function() {
+          $(this).find('img').addClass('blur');
+          $(this).find('a.button').show();
+          $(this).find('.trans-layer').show();
+        });
+        $(element).mouseleave(function() {
+          var blogTeaser = $(this).find('img');
+          blogTeaser.removeClass('blur');
+          $(this).find('a.button').hide();
+          $(this).find('.trans-layer').hide();
+        });
+        $(element).click(function() {
+          var blogTeaser = $(this).find('img');
+          blogTeaser.removeClass('blur');
+          $(this).find('a.button').hide();
         });
       }
     };
@@ -60,8 +106,15 @@
     return function(obj, index) {
       return obj && obj.slice(index);
     };
-  });
-  angular.module('njcameron.FlatoBs2').provider('config', [ '$provide', function($provide) {
+  }).filter('htmlToPlaintext', function() {
+    return function(text) {
+      return String(text).replace(/<[^>]+>/gm, '');
+    };
+  }).filter('mysce', [ '$sce', function($sce) {
+    return $sce.trustAsHtml;
+  } ]);
+  var app = angular.module('njcameron.FlatoBs2').constant('BASE_URL', 'http://ferko.flato.local/').constant('FILES_DIR', 'sites/default/files/').constant('BLOG_THUMB_PATH', 'styles/blog_thumbnail/public/').constant('CONFIG_PATH', 'api/v1/config/').constant('BLOG_PATH', 'api/v1/content/blog/').constant('WORK_PATH', 'api/v1/content/work/').constant('TAXONOMY_PATH', 'api/v1/content/category/');
+  app.provider('config', [ '$provide', function($provide) {
     var defaults = this.defaults = {
       debug: false,
       version: '0.1.0',
@@ -80,7 +133,49 @@
       return config;
     };
   } ]);
-  app.filter('mysce', [ '$sce', function($sce) {
-    return $sce.trustAsHtml;
+  app.factory('Strings', [ '$resource', 'BASE_URL', 'CONFIG_PATH', function($resource, BASE_URL, CONFIG_PATH) {
+    return $resource(BASE_URL + CONFIG_PATH);
   } ]);
+  app.factory('Work', [ '$resource', 'BASE_URL', 'WORK_PATH', function($resource, BASE_URL, WORK_PATH) {
+    return $resource(BASE_URL + WORK_PATH);
+  } ]);
+  app.factory('Blog', [ '$resource', 'BASE_URL', 'BLOG_PATH', function($resource, BASE_URL, BLOG_PATH) {
+    return $resource(BASE_URL + BLOG_PATH);
+  } ]);
+  app.factory('BlogPage', [ '$resource', 'BASE_URL', 'BLOG_PATH', function($resource, BASE_URL, BLOG_PATH) {
+    return $resource(BASE_URL + BLOG_PATH + ':nodeId');
+  } ]);
+  app.factory('Terms', [ '$resource', 'BASE_URL', 'TAXONOMY_PATH', function($resource, BASE_URL, TAXONOMY_PATH) {
+    return $resource(BASE_URL + TAXONOMY_PATH + ':termId');
+  } ]);
+  app.service('WorkPreProcess', [ 'Terms', 'BASE_URL', 'FILES_DIR', function(Terms, BASE_URL, FILES_DIR) {
+    this.processWork = function(workItem) {
+      workItem.fullImage = BASE_URL + FILES_DIR + workItem.field_filename[0].value;
+      return workItem;
+    };
+  } ]);
+  app.service('BlogPostPreProcess', [ 'Terms', 'BASE_URL', 'FILES_DIR', 'BLOG_THUMB_PATH', function(Terms, BASE_URL, FILES_DIR, BLOG_THUMB_PATH) {
+    this.processBlog = function(blogPost) {
+      blogPost.date = blogPost.created[0].value * 1e3;
+      blogPost.thumbnail = BASE_URL + FILES_DIR + BLOG_THUMB_PATH + blogPost.field_filename[0].value;
+      blogPost.fullImage = BASE_URL + FILES_DIR + blogPost.field_filename[0].value;
+      if (Object.size(blogPost.field_category) > 0) {
+        Terms.query({
+          termId: blogPost.field_category[0].target_id
+        }, function(data) {
+          blogPost.category = data[0].name[0].value;
+        });
+      }
+      return blogPost;
+    };
+  } ]);
+  Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        size = size + 1;
+      }
+    }
+    return size;
+  };
 })(window, document);

@@ -1,13 +1,9 @@
 <!doctype html>
 <html class="no-js" lang="en" ng-app="njcameron.FlatoBs2">
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Neil Cameron - Drupal | London | Contractor | Consultant</title>
-  <meta name="description" content="Neil Cameron is a freelance consultant and developer
-    focused on building team and building products.">
-
+  <title ng-bind-template="{{viewTitle}}"></title>
   <!-- Sets initial viewport load and disables zooming  -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
@@ -22,9 +18,10 @@
     focused on building team and building products.">
   <meta property="og:image" content="https://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png">
 
-  <link rel="icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
-
+  <link rel="shortcut icon" href="assets/images/favico.png" type="image/png">
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/DirectionAwareHoverEffect/js/jquery.hoverdir.js"></script>
+  <script src="scripts/preloader.js"></script>
 
   <!-- bower:css -->
   <link rel="stylesheet" href="styles/libs.min.css">
@@ -36,26 +33,13 @@
 
 </head>
 
-<body ontouchstart="" ng-controller="MainCtrl as main">
+<body ontouchstart="">
 
-<div class="container-fluid">
-  <section>
-<!-- ngInclude: 'views/partials/header.html' -->
-
-<!--/ngInclude: 'views/partials/header.html' -->
-</section>
-
-  <section ng-include="&quot;views/partials/banner.html&quot;" id="banner"></section>
-
-  <section ng-include="&quot;views/partials/about.html&quot;" id="about"></section>
-
-  <section ng-include="&quot;views/partials/work.html&quot;" ng-controller="WorkCtrl" id="work"></section>
-
-  <section ng-include="&quot;views/partials/blog.html&quot;" ng-controller="BlogCtrl" id="blog"></section>
-
-  <section ng-include="&quot;views/partials/footer.html&quot;" id="contact"></section>
-
+<div id="preload_wrapper">
+  <div id="preloader_3"></div>
 </div>
+
+  <div ng-view=""></div>
 
 <!-- bower:js -->
 <script src="scripts/libs.min.js"></script>
@@ -66,5 +50,13 @@
 <!-- endinject -->
 
 </body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-62883841-2', 'auto');
+  ga('send', 'pageview');
+</script>
 </html>
