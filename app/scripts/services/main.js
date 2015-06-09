@@ -40,6 +40,16 @@ app.provider('config', function($provide) {
 /*
  * API Service.
  */
+// Strings API call.
+app.factory('Strings', function($resource, BASE_URL, CONFIG_PATH) {
+  return $resource(BASE_URL + CONFIG_PATH);
+});
+
+// Work items API call.
+app.factory('Work', function($resource, BASE_URL, WORK_PATH) {
+  return $resource(BASE_URL + WORK_PATH);
+});
+
 // Blog posts API call.
 app.factory('Blog', function($resource, BASE_URL, BLOG_PATH) {
   return $resource(BASE_URL + BLOG_PATH);
@@ -55,6 +65,17 @@ app.factory('Terms', function($resource, BASE_URL, TAXONOMY_PATH) {
   return $resource(BASE_URL + TAXONOMY_PATH + ':termId');
 });
 
+/*
+ * Process work items.
+ */
+app.service('WorkPreProcess', function(Terms, BASE_URL, FILES_DIR) {
+  this.processWork = function(workItem) {
+    // Full images.
+    workItem.fullImage = BASE_URL + FILES_DIR + workItem.field_filename[0].value;
+
+    return workItem
+  };
+});
 
 /*
  * Process blog posts.
