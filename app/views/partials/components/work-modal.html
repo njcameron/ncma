@@ -1,10 +1,8 @@
 <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
+      <i id="close-work-modal" class="fa fa-times" ng-click="$hide()"></i>
       <div class="modal-body">
-
-        <i id="close-work-modal" class="fa fa-times" ng-click="$hide()"></i>
-
         <div class="row">
           <div class="col-md-12">
             <h2>{{work.field_project_title[0].value}}</h2>
@@ -15,7 +13,7 @@
         <div class="row">
           <div class="col-md-6">
             <div ng-bind-html="work.field_work_col_1[0].value | mysce"></div>
-            <a class="btn btn-default"
+            <a class="button"
                role="button"
                ng-show="{{work.field_project_link[0].value != ''}}"
                href="{{work.field_project_link[0].value}}"

@@ -66,6 +66,6 @@ app.controller("BlogCtrl", function ($scope, Blog, BlogPostPreProcess) {
 app.controller("BlogPageCtrl", function ($scope, BlogPage, BlogPostPreProcess, $routeParams, $sce) {
   BlogPage.query({nodeId:$routeParams.nid}, function(data) {
     $scope.blog = BlogPostPreProcess.processBlog(data[0]);
-    console.log($scope.blog);
+    console.log();
   });
 });

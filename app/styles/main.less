@@ -1,36 +1,110 @@
+/**
+ * Colours.
+*/
+@bright-yellow: #FFE319;
+@text-color: #161616;
+@divider-blue: #8bc3ee;
+
+/**
+ * Componentised styles.
+*/
 @import (reference) "../bower_components/bootstrap/less/bootstrap";
 @import (css) "skillbar.css";
 @import (css) "callouts.css";
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import (less) "preloader.css";
 
-@bright-yellow: #FFE319;
-@text-color: #161616;
-
+/**
+ * Fonts.
+*/
 @font-face {
-  font-family: 'gibsonlightregular';
-  src: url('../assets/fonts/gibsonlight-regular-webfont.eot');
-  src: url('../assets/fonts/gibsonlight-regular-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/gibsonlight-regular-webfont.woff2') format('woff2'),
-  url('../assets/fonts/gibsonlight-regular-webfont.woff') format('woff'),
-  url('../assets/fonts/gibsonlight-regular-webfont.ttf') format('truetype'),
-  url('../assets/fonts/gibsonlight-regular-webfont.svg#gibsonlightregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'gibsonbold';
-  src: url('../assets/fonts/gibson-semibold-webfont.eot'),
-  url('../assets/fonts/gibson-semibold-webfont.woff') format('woff'),
-  url('../assets/fonts/gibson-semibold-webfont.ttf') format('truetype'),
-  url('../assets/fonts/gibson-semibold-webfont.svg#gibsonbold') format('svg');
+  font-family: 'qsiovwbzki';
+  src: url('../assets/fonts/qsiovwbzki-semibold-webfont.eot'),
+  url('../assets/fonts/qsiovwbzki-semibold-webfont.woff') format('woff'),
+  url('../assets/fonts/qsiovwbzki-semibold-webfont.ttf') format('truetype'),
+  url('../assets/fonts/qsiovwbzki-semibold-webfont.svg#qsiovwbzki') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 /**
-  * Top Banner.
-**/
+ * Typography.
+*/
+body {
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+p {
+  margin: 0 0 17px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  line-height: 1.2;
+  font-family: qsiovwbzki;
+  letter-spacing: -2px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: 3.75em;
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h5 {
+  font-size: 1.15em;
+}
+
+.undertitle {
+  font-size: 1.3em;
+  font-weight: 200;
+  -webkit-font-smoothing: antialiased;
+}
+
+.teaser-text {
+  font-size: 1.05em;
+  font-weight: 200;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tooltip {
+  font-size: 0.85em;
+}
+
+/**
+ * General styles.
+*/
+::selection {
+  background: @bright-yellow;
+  color: #323232;
+}
+
+.blur {
+  -webkit-filter: blur(5px);
+}
+
+/**
+ * Dividers.
+*/
+.fbs-divider {
+  min-height: 275px;
+  background-color: @divider-blue;
+  width: 100%;
+  margin: 50px 0;
+  padding-top: 30px;
+  text-align: center;
+}
+
+/**
+ * Top Banner.
+*/
 #banner {
   width: 100%;
   height:100vh;
@@ -49,7 +123,7 @@
     font-size: 8em;
     letter-spacing: 0px;
     -webkit-font-smoothing: antialiased;
-    font-family: gibsonbold;
+    font-family: qsiovwbzki;
     text-transform: uppercase;
   }
 
@@ -127,10 +201,9 @@
   }
 }
 
-
 /**
-  * Work.
-**/
+ * Work.
+*/
 #work {
   .fbs-divider {
     margin-bottom: 0;
@@ -173,8 +246,9 @@
     position: absolute;
     right: 12px;
     cursor: pointer;
-    font-size: 2em;
+    font-size: 1.6em;
     z-index: 100;
+    margin-top:5px;
   }
 
   .modal-body {
@@ -191,7 +265,7 @@
   }
 
   .bs-callout {
-    margin-top: 0px;
+    margin-top: -70px;
   }
 }
 
@@ -199,10 +273,9 @@
   background-color: rgba(176, 176, 176, 0.85);
 }
 
-
 /**
-  * Blog.
-**/
+ * Blog.
+*/
 #blog {
   .fbs-divider {
     margin-top: 0;
@@ -214,7 +287,6 @@
     display: block;
     width:100%;
     position: relative;
-
   }
 
   .blog-thumbnail-wrapper > img {
@@ -250,9 +322,10 @@
     margin: 15px 0 5px 0;
   }
 }
+
 /**
-  * Blog post page.
-**/
+ * Blog post page.
+*/
 .blog-post-image {
   height:450px;
   margin-top: 0px;
@@ -269,11 +342,6 @@
   text-align: center;
 }
 
-.blog-post-body {
-  font-size: 1.2em;
-  line-height: 1.55em;
-}
-
 .blog-post-date {
   margin-top: 30px;
   margin-bottom: 10px;
@@ -284,74 +352,10 @@
   bottom: 20px;
   left: 20px;
 }
-/**
-  * Dividers.
-**/
-.fbs-divider {
-  min-height: 275px;
-  background-color: #8bc3ee;
-  width: 100%;
-  margin: 50px 0;
-  padding-top: 30px;
-  text-align: center;
-}
 
 /**
-  * Typography
-**/
-body {
- font-size: 17px;
-  -webkit-font-smoothing: antialiased;
-}
-
-p {
-  margin: 0 0 17px;
-}
-
-h1, h2, h3, h4 {
-  font-weight: 600;
-  line-height: 1.2;
-  font-family: gibsonbold;
-  letter-spacing: -2px;
-  -webkit-font-smoothing: antialiased;
-}
-
-h1 {
-  font-size: 3.75em;
-}
-
-h2 {
-  font-size: 1.8em;
-}
-
-h3 {
-  font-size: 1.5em;
-}
-
-h5 {
-  font-size: 1.15em;
-}
-
-.undertitle {
-  font-size: 1.3em;
-  font-weight: 200;
-    -webkit-font-smoothing: antialiased;
-}
-
-.teaser-text {
-  font-size: 1.05em;
-  font-weight: 200;
-  -webkit-font-smoothing: antialiased;
-}
-
-.tooltip {
-  font-size: 0.85em;
-}
-
-
-/**
-  * Social icons.
-**/
+ * Contact me.
+*/
 .social-icons {
   margin: auto;
   margin-top: 25px;
@@ -443,6 +447,9 @@ footer {
   }
 }
 
+/**
+ * Forms.
+*/
 .button.small {
   padding: 5px 15px;
   font-size: 0.75em;
@@ -454,7 +461,7 @@ input {
 
 input.text {
   width: 100%;
-  color: #161616;
+  color: @text-color;
   max-width: 450px;
   padding: 13px;
   background: rgba(255,255,255,0.35);
@@ -465,15 +472,6 @@ input.text {
   margin-bottom: 30px;
   font-size: 1.2em;
   font-weight: 400;
-  font-family: "helvetica neue";
+  font-family: "helvetica neue", sans-serif;
   -webkit-font-smoothing: antialiased;
-}
-
-.blur {
-  -webkit-filter: blur(5px);
-}
-
-::selection {
-  background: @bright-yellow;
-  color: #323232;
 }
