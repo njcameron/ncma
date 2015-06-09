@@ -2,14 +2,14 @@
 
 angular.module('njcameron.FlatoBs2')
 
-  .filter('time', function() {
-    return function(obj) {
+  .filter('time', function () {
+    return function (obj) {
       return +new Date(obj);
     };
   })
 
-  .filter('startFrom', function() {
-    return function(obj, index) {
+  .filter('startFrom', function () {
+    return function (obj, index) {
       return obj && obj.slice(index);
     };
   })
@@ -17,11 +17,11 @@ angular.module('njcameron.FlatoBs2')
   /*
    * HTML to plain text filter.
    */
-  .filter('htmlToPlaintext', function() {
-      return function(text) {
-        return String(text).replace(/<[^>]+>/gm, '');
-      };
-    })
+  .filter('htmlToPlaintext', function () {
+    return function (text) {
+      return String(text).replace(/<[^>]+>/gm, '');
+    };
+  })
 
   /*
    * HTML filter.
