@@ -16,16 +16,17 @@
     "type": "git",
     "url": "https://github.com/njcameron/flato-bs2.git"
   },
-   "licenses": [
+  "licenses": [
     {
       "type": "MIT"
     }
   ],
   "dependencies": {},
   "devDependencies": {
+    "factory-angular-channels": "^0.7.1",
     "gulp": "git://github.com/gulpjs/gulp.git#4.0",
+    "gulp-include": "^1.1.1",
     "ng-factory": "^1.0",
-    "undertaker-app-tasks": "^0.2.6",
-    "factory-angular-channels": "^0.7.1"
+    "undertaker-app-tasks": "^0.2.6"
   }
 }
