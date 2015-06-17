@@ -414,7 +414,7 @@ h4 {
   -webkit-font-smoothing: antialiased;
 }
 h1 {
-  font-size: 3.75em;
+  font-size: 3.3em;
 }
 h2 {
   font-size: 1.8em;
@@ -436,7 +436,7 @@ blockquote {
   border-left: 5px solid #8bc3ee;
 }
 .undertitle {
-  font-size: 1.3em;
+  font-size: 1.1em;
   font-weight: 200;
   -webkit-font-smoothing: antialiased;
 }
@@ -447,6 +447,25 @@ blockquote {
 }
 .tooltip {
   font-size: 0.85em;
+}
+/**
+ * Mobile typography.
+ */
+@media (max-width: 767px) {
+  h1 {
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 1.8em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+  .undertitle {
+    font-size: 1.05em;
+    font-weight: 200;
+    -webkit-font-smoothing: antialiased;
+  }
 }
 /**
  * General styles.
@@ -495,12 +514,16 @@ blockquote {
   -webkit-font-smoothing: antialiased;
   font-family: qsiovwbzki;
   text-transform: uppercase;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 #banner .small-text {
   display: block;
   font-size: 2.1em;
   text-transform: uppercase;
   margin-top: 1em;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 #banner .button-wrapper {
   margin-top: 5.2em;
@@ -516,6 +539,18 @@ blockquote {
 }
 #banner .button-wrapper .button:last-child {
   margin-right: 0em;
+}
+.mobile-overlay {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  z-index: 15;
+  background-color: none;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 .video-overlay {
   position: absolute;
@@ -544,6 +579,63 @@ blockquote {
   z-index: 50;
   background: rgba(255, 255, 255, 0.15);
 }
+/*  Banner Tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+  .video-overlay {
+    background-size: cover;
+    background-image: url('/assets/images/ldn_bckgrnd.jpg');
+    background-position: 50% top;
+  }
+  .mobile-overlay {
+    background-color: rgba(5, 1, 5, 0.15);
+  }
+  #banner .big-text {
+    font-size: 5em;
+    letter-spacing: 0px;
+  }
+  #banner .small-text {
+    font-size: 1.7em;
+  }
+  #banner .button-wrapper {
+    margin-top: 4.2em;
+  }
+}
+/*  Banner mobile */
+@media (max-width: 767px) {
+  .video-overlay {
+    background-size: cover;
+    background-image: url('/assets/images/ldn_bckgrnd.jpg');
+    background-position: 50% top;
+  }
+  .mobile-overlay {
+    background-color: rgba(5, 1, 5, 0.3);
+  }
+  #banner .banner-wrapper {
+    padding-top: 30vh;
+    width: 340px;
+    margin: auto;
+  }
+  #banner .big-text {
+    font-size: 2.60em;
+    letter-spacing: 0px;
+  }
+  #banner .small-text {
+    font-size: 1.3em;
+    display: inline-block;
+  }
+  #banner .button-wrapper {
+    margin-top: 2.5em;
+  }
+  #banner .button-wrapper .button {
+    color: white;
+    border: 2px solid white;
+    margin-right: 1em;
+    padding: 8px 25px;
+  }
+}
+/**
+ * About.
+ */
 #about .fbs-divider {
   margin: 0px 0 50px 0;
 }
@@ -608,8 +700,25 @@ blockquote {
 .modal-dialog .bs-callout {
   margin-top: -70px;
 }
-.modal-backdrop {
-  background-color: rgba(176, 176, 176, 0.85);
+.modal-dialog .top-view-button {
+  display: inline-block;
+}
+.modal-dialog .bottom-view-button {
+  display: none;
+}
+/**
+ * Responsive modals for mobile and desktop.
+ */
+@media (max-width: 992px) {
+  .modal-dialog .bs-callout {
+    margin-top: 1.3em;
+  }
+  .modal-dialog .top-view-button {
+    display: none;
+  }
+  .modal-dialog .bottom-view-button {
+    display: inline-block;
+  }
 }
 /**
  * Blog.
@@ -720,7 +829,7 @@ footer {
 * */
 .button {
   display: inline-block;
-  padding: 20px 60px;
+  padding: 18px 50px;
   color: #333333;
   border: 2px solid #333333;
   font-size: 0.9em;
@@ -763,13 +872,10 @@ input.text {
   width: 100%;
   color: #333333;
   max-width: 450px;
-  padding: 13px;
+  padding: 11px;
   background: rgba(255, 255, 255, 0.35);
-  border: none;
-  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.15);
-  margin-bottom: 30px;
-  font-size: 1.2em;
-  font-weight: 400;
-  font-family: "helvetica neue", sans-serif;
+  border: 1px solid #d3d3d3;
+  margin-bottom: 20px;
+  font-size: 1em;
   -webkit-font-smoothing: antialiased;
 }

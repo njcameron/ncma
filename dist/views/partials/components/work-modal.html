@@ -13,7 +13,7 @@
         <div class="row">
           <div class="col-md-6">
             <div ng-bind-html="work.field_work_col_1[0].value | mysce"></div>
-            <a class="button"
+            <a class="button top-view-button"
                role="button"
                ng-show="{{work.field_project_link[0].value != ''}}"
                href="{{work.field_project_link[0].value}}"
@@ -24,6 +24,13 @@
 
           <div class="col-md-6">
             <div ng-bind-html="work.field_work_col_2[0].value | mysce"></div>
+            <a class="button bottom-view-button"
+               role="button"
+               ng-show="{{work.field_project_link[0].value != ''}}"
+               href="{{work.field_project_link[0].value}}"
+               target="_blank">
+              View Project
+            </a>
           </div>
         </div>
       </div>

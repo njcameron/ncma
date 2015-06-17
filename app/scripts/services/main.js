@@ -1,7 +1,8 @@
 'use strict';
 
 var app = angular.module('njcameron.FlatoBs2')
-  .constant('BASE_URL', "http://d129n14rpxc864.cloudfront.net/")
+    .constant('BASE_URL', "http://d129n14rpxc864.cloudfront.net/")
+ // .constant('BASE_URL', "http://ferko.flato.local/")
   .constant('FILES_DIR', "sites/default/files/")
   .constant('BLOG_THUMB_PATH', "styles/blog_thumbnail/public/")
   .constant('CONFIG_PATH', "api/v1/config/")
