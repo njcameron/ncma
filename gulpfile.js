@@ -7,7 +7,7 @@ var config = require('ng-factory').use(gulp);
 // Aliases
 
 gulp.task("add_scripts", function() {
-  return gulp.src(['app/bower_components/jquery/dist/jquery.js'])
+  return gulp.src(['app/bower_components/jquery/dist/jquery.min.js'])
     .pipe(gulp.dest('dist/bower_components/jquery/dist'));
 });
 
