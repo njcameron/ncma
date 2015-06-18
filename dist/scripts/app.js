@@ -2,6 +2,7 @@
   'use strict';
   angular.module('njcameron.FlatoBs2', [ 'ngResource', 'ngAnimate', 'ngRoute', 'ngSanitize', 'smoothScroll', 'mgcrea.ngStrap', 'angular-parallax', 'viewhead' ]).constant('version', 'v0.1.0').config([ '$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.html5Mode(false);
+    $locationProvider.hashPrefix('!');
     $routeProvider.when('/', {
       templateUrl: 'views/home.html',
       controller: 'MainCtrl'

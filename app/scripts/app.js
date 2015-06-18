@@ -16,6 +16,7 @@ angular.module('njcameron.FlatoBs2',
   .config(function($locationProvider, $routeProvider) {
 
     $locationProvider.html5Mode(false);
+    $locationProvider.hashPrefix('!');
 
     $routeProvider
       .when("/", {
