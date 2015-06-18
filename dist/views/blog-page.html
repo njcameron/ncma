@@ -21,8 +21,9 @@
 <!-- Human content -->
 <div class="container-fluid">
   <div class="row">
-    <div class="blog-post-image" parallax-background parallax-ratio="0.4" style="background-image: url({{blog.fullImage}})">
-    </div>
+    <!-- parallax for desktop, static for mobile -->
+    <div class="blog-post-image hidden-sm hidden-xs" parallax-background parallax-ratio="0.4" style="background-image: url({{blog.fullImage}})"></div>
+    <div class="blog-post-image hidden-md hidden-lg" style="background-image: url({{blog.fullImage}})"></div>
   </div>
 </div>
 

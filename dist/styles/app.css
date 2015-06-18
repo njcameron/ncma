@@ -433,7 +433,7 @@ blockquote {
   font-family: qsiovwbzki;
   font-size: 1.7em;
   line-height: 1.5em;
-  border-left: 5px solid #8bc3ee;
+  border-left: 5px solid #89c4f4;
 }
 .undertitle {
   font-size: 1.1em;
@@ -486,7 +486,7 @@ blockquote {
  */
 .fbs-divider {
   min-height: 275px;
-  background-color: #8bc3ee;
+  background-color: #89c4f4;
   width: 100%;
   margin: 50px 0;
   padding-top: 30px;
@@ -700,24 +700,15 @@ blockquote {
 .modal-dialog .bs-callout {
   margin-top: -70px;
 }
-.modal-dialog .top-view-button {
-  display: inline-block;
-}
-.modal-dialog .bottom-view-button {
-  display: none;
-}
 /**
- * Responsive modals for mobile and desktop.
+ * Responsive modals for mobile and tablet.
  */
 @media (max-width: 992px) {
   .modal-dialog .bs-callout {
     margin-top: 1.3em;
   }
-  .modal-dialog .top-view-button {
-    display: none;
-  }
-  .modal-dialog .bottom-view-button {
-    display: inline-block;
+  .modal-dialog .modal-body {
+    padding: 5px 20px 20px 20px;
   }
 }
 /**
@@ -773,17 +764,40 @@ blockquote {
   float: none;
   padding: 10px 50px 10px 50px;
 }
-.center {
-  text-align: center;
+.undertitle {
+  font-weight: 600;
 }
 .blog-post-date {
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 .go-back {
   position: fixed;
   bottom: 20px;
   left: 20px;
+}
+/**
+ * Responsive blog page for mobile.
+ */
+@media (max-width: 767px) {
+  .blog-post-container {
+    padding: 10px 30px 10px 30px;
+  }
+  .blog-post-container h1 {
+    font-size: 2.2em;
+  }
+  .blog-post-container h5 {
+    font-size: 1.1em;
+  }
+}
+/**
+ * Responsive blog page for mobile + tablet.
+ */
+@media (max-width: 1199px) {
+  .go-back {
+    position: relative;
+    margin-top: 30px;
+  }
 }
 /**
  * Contact me.
@@ -815,21 +829,29 @@ blockquote {
 #contact .fbs-divider {
   padding-top: 0px;
 }
+/**
+ * Make divider a bit higher for mobile.
+ */
+@media (max-width: 767px) {
+  #contact .fbs-divider {
+    min-height: 310px;
+  }
+}
 #mc_embed_signup {
   margin: 20px 0px;
 }
 footer {
-  height: 100px;
+  min-height: 100px;
   background-color: #d3d3d3;
   text-align: center;
-  padding: 50px 0px;
+  padding: 40px 0px;
 }
 /**
   * Buttons.
 * */
 .button {
   display: inline-block;
-  padding: 18px 50px;
+  padding: 17px 60px;
   color: #333333;
   border: 2px solid #333333;
   font-size: 0.9em;
