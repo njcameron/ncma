@@ -757,7 +757,6 @@ blockquote {
 .blog-post-image {
   height: 450px;
   margin-top: 0px;
-  background-position: 50% auto;
   background-size: 100%;
   background-repeat: no-repeat;
 }
