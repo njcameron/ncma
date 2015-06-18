@@ -30,6 +30,8 @@ app.controller("BlogCtrl", function ($scope, Blog, BlogPostPreProcess) {
     $scope.blogs = data;
     angular.forEach($scope.blogs, function (value, index) {
       $scope.blogs[index] = BlogPostPreProcess.processBlog(value);
+      console.log($scope.blogs[index]);
+
     });
   });
 });

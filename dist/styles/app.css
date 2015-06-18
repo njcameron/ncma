@@ -583,7 +583,7 @@ blockquote {
 @media (min-width: 768px) and (max-width: 991px) {
   .video-overlay {
     background-size: cover;
-    background-image: url('/assets/images/ldn_bckgrnd.jpg');
+    background-image: url('../assets/images/ldn_bckgrnd.jpg');
     background-position: 50% top;
   }
   .mobile-overlay {
