@@ -94,7 +94,7 @@ blockquote {
 }
 
 /**
- * iphone 6 / larger mobile screen
+ * Typography iphone 6 / larger mobile screen
  */
 @media (max-width: @screen-xs-max) {
   h1 {
@@ -117,6 +117,29 @@ blockquote {
 }
 
 /**
+ * Typography iphone 5 / smaller mobile screen
+ */
+@media (max-width: 350px) {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+  }
+
+  .undertitle {
+    font-size: 0.95em;
+    font-weight: 200;
+    -webkit-font-smoothing: antialiased;
+  }
+ }
+
+/**
  * General styles.
  */
 ::selection {
@@ -135,7 +158,7 @@ blockquote {
   min-height: 275px;
   background-color: @divider-blue;
   width: 100%;
-  margin: 50px 0;
+  margin: 50px 0px 50px 0px;
   padding-top: 30px;
   text-align: center;
 }
@@ -325,15 +348,8 @@ blockquote {
 }
 
 /*  Banner small mobile, iphone 5 */
-
 @media (max-width: 350px) {
   #banner {
-    .banner-wrapper {
-      padding-top: 30vh;
-      width: 100%;
-      margin:auto;
-    }
-
     .big-text {
       font-size: 2.1em;
       letter-spacing: 0px;
@@ -355,8 +371,6 @@ blockquote {
       }
     }
   }
-
-
 }
 
 /**
@@ -364,7 +378,7 @@ blockquote {
  */
 #about {
   .fbs-divider {
-    margin: 0px 0 50px 0;
+    margin: 0px 0px 50px 0px;
   }
 
   .about-me-img {
