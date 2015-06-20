@@ -94,7 +94,7 @@ blockquote {
 }
 
 /**
- * Mobile typography.
+ * iphone 6 / larger mobile screen
  */
 @media (max-width: @screen-xs-max) {
   h1 {
@@ -163,11 +163,6 @@ blockquote {
     -webkit-font-smoothing: antialiased;
     font-family: qsiovwbzki;
     text-transform: uppercase;
-
-    -webkit-transition: all 0.2s;
-    -moz-transition:    all 0.2s;
-    -o-transition:      all 0.2s;
-    transition:         all 0.2s;
   }
 
   .small-text {
@@ -175,11 +170,6 @@ blockquote {
     font-size: 2.1em;
     text-transform: uppercase;
     margin-top: 1em;
-
-    -webkit-transition: all 0.2s;
-    -moz-transition:    all 0.2s;
-    -o-transition:      all 0.2s;
-    transition:         all 0.2s;
   }
 
   .button-wrapper {
@@ -307,7 +297,7 @@ blockquote {
   #banner {
     .banner-wrapper {
       padding-top: 30vh;
-      width: 340px;
+      width: 100%;
       margin:auto;
     }
 
@@ -332,6 +322,41 @@ blockquote {
       }
     }
   }
+}
+
+/*  Banner small mobile, iphone 5 */
+
+@media (max-width: 350px) {
+  #banner {
+    .banner-wrapper {
+      padding-top: 30vh;
+      width: 100%;
+      margin:auto;
+    }
+
+    .big-text {
+      font-size: 2.3em;
+      letter-spacing: 0px;
+    }
+
+    .small-text {
+      font-size: 1.1em;
+      display: inline-block;
+    }
+
+    .button-wrapper {
+      margin-top: 2.5em;
+
+      .button {
+        color: white;
+        border: 2px solid white;
+        margin-right: 0.5em;
+        padding: 6px 20px;
+      }
+    }
+  }
+
+
 }
 
 /**
