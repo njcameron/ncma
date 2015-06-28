@@ -31,6 +31,12 @@ gulp.task("add_robots", function() {
     .pipe(gulp.dest('dist/'));
 });
 
+gulp.task("add_htaccess", function() {
+  return gulp.src(['app/.htaccess'])
+    .pipe(gulp.dest('dist/'));
+});
+
 
 gulp.task('serve', gulp.series('ng:serve'));
-gulp.task('build', gulp.series(['ng:build', 'add_scripts2', 'add_scripts', 'add_assets', 'add_templates', 'add_robots']));
+gulp.task('build', gulp.series(['ng:build', 'add_scripts2', 'add_scripts',
+  'add_assets', 'add_templates', 'add_robots', 'add_htaccess']));
