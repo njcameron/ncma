@@ -1,20 +1,19 @@
 {
-  "name": "flato-bs2",
+  "name": "ncma",
   "version": "0.1.0",
-  "description": "Yet another amazing AngularJS app!",
+  "description": "The personal site of Neil Cameron. An Angular app which consumes a content API.",
   "keywords": [
     "angular"
   ],
-  "homepage": "https://github.com/njcameron/flato-bs2",
-  "bugs": "https://github.com/njcameron/flato-bs2/issues",
+  "homepage": "https://github.com/njcameron/ncma",
   "author": {
     "name": "Neil Cameron",
-    "email": "neil.cameron@cameronandwilding.com",
-    "url": "https://github.com/njcameron"
+    "email": "neil@neilcameron.me",
+    "url": "https://neilcameron.me"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/njcameron/flato-bs2.git"
+    "url": "https://github.com/njcameron/ncma.git"
   },
   "licenses": [
     {
