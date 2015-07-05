@@ -17,6 +17,6 @@
     </IfModule>
 
     # Deny crawling of none CDN origin site.
-    RewriteCond %{HTTP_HOST} ^beta.neilcameron.me$
-    RewriteRule ^robots\.txt$ subdomain-robots.txt
+    RewriteCond %{HTTP_HOST} =beta.neilcameron.me$
+    RewriteRule ^robots\.txt$ /subdomain-robots.txt [L]
 </IfModule>
