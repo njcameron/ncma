@@ -2,7 +2,7 @@
 # Change http://example.com (at the end of the last RewriteRule) to your website url
 
 <IfModule mod_headers.c>
-    #RequestHeader set X-Prerender-Token "YOUR_TOKEN"
+    RequestHeader set X-Prerender-Token "P6HW3J5PLtz48n7nrSdN"
 </IfModule>
 
 <IfModule mod_rewrite.c>
