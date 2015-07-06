@@ -37,7 +37,7 @@ app.controller("BlogCtrl", function ($scope, Blog, BlogPostPreProcess) {
 /**
  * Controller for blog page.
  */
-app.controller("BlogPageCtrl", function ($scope, BlogPage, BlogPostPreProcess, $routeParams) {
+app.controller("BlogPageCtrl", function ($templateCache, $scope, BlogPage, BlogPostPreProcess, $routeParams) {
   BlogPage.query({nodeId: $routeParams.nid}, function (data) {
     $scope.blog = BlogPostPreProcess.processBlog(data[0]);
   });

@@ -21,11 +21,6 @@ gulp.task("add_assets", function() {
     .pipe(gulp.dest('dist/assets'));
 });
 
-gulp.task("add_templates", function() {
-  return gulp.src(['app/views/**/*.*'])
-    .pipe(gulp.dest('dist/views'));
-});
-
 gulp.task("add_robots", function() {
   return gulp.src(['app/*robots.txt'])
     .pipe(gulp.dest('dist/'));
@@ -39,4 +34,4 @@ gulp.task("add_htaccess", function() {
 
 gulp.task('serve', gulp.series('ng:serve'));
 gulp.task('build', gulp.series(['ng:build', 'add_scripts2', 'add_scripts',
-  'add_assets', 'add_templates', 'add_robots', 'add_htaccess']));
+  'add_assets', 'add_robots', 'add_htaccess']));
