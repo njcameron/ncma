@@ -809,6 +809,9 @@ blockquote {
   margin-top: 20px;
   margin-bottom: 10px;
 }
+.blog-post-body img {
+  max-width: 100%;
+}
 .go-back {
   position: fixed;
   bottom: 20px;
