@@ -3,7 +3,7 @@
 <meta view-head property="description" content="{{blog.field_standfirst[0].value | htmlToPlaintext}}" />
 
 <!-- Twitter card meta data -->
-<meta view-head name="twitter:card" content="summary" />
+<meta view-head name="twitter:card" content="summary_large_image" />
 <meta view-head name="twitter:site" content="@ncameron" />
 <meta view-head name="twitter:title" content="{{blog.title[0].value}}" />
 <meta view-head name="twitter:description" content="{{blog.field_standfirst[0].value | htmlToPlaintext}}" />
@@ -12,6 +12,7 @@
 <!-- Facebook card meta data -->
 <meta view-head property="og:title" content="{{blog.title[0].value}}" />
 <meta view-head property="og:site_name" content="Neilcameron.me"/>
+<meta view-head property="og:image" content="{{blog.fullImage}}"/>
 <meta view-head property="og:url" content="http://neilcameron.me/#/blog/post/{{blog.nid[0].value}}"/>
 <meta view-head property="og:description" content="{{blog.field_standfirst[0].value | htmlToPlaintext}}" />
 <meta view-head property="og:type" content="article" />
