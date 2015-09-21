@@ -8,7 +8,8 @@ angular.module('njcameron.FlatoBs2',
       'smoothScroll',
       'mgcrea.ngStrap',
       'angular-parallax',
-      'viewhead'
+      'viewhead',
+      'angularUtils.directives.dirDisqus'
     ])
 
   .constant('version', 'v0.1.0')
