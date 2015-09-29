@@ -47,7 +47,23 @@
       nodeId: $routeParams.nid
     }, function(data) {
       $scope.blog = BlogPostPreProcess.processBlog(data[0]);
+      $scope.contentLoaded = true;
     });
+  } ]);
+  angular.module('njcameron.FlatoBs2').filter('time', function() {
+    return function(obj) {
+      return +new Date(obj);
+    };
+  }).filter('startFrom', function() {
+    return function(obj, index) {
+      return obj && obj.slice(index);
+    };
+  }).filter('htmlToPlaintext', function() {
+    return function(text) {
+      return String(text).replace(/<[^>]+>/gm, '');
+    };
+  }).filter('mysce', [ '$sce', function($sce) {
+    return $sce.trustAsHtml;
   } ]);
   var app = angular.module('njcameron.FlatoBs2');
   app.directive('directionalHover', function() {
@@ -99,21 +115,6 @@
       }
     };
   });
-  angular.module('njcameron.FlatoBs2').filter('time', function() {
-    return function(obj) {
-      return +new Date(obj);
-    };
-  }).filter('startFrom', function() {
-    return function(obj, index) {
-      return obj && obj.slice(index);
-    };
-  }).filter('htmlToPlaintext', function() {
-    return function(text) {
-      return String(text).replace(/<[^>]+>/gm, '');
-    };
-  }).filter('mysce', [ '$sce', function($sce) {
-    return $sce.trustAsHtml;
-  } ]);
   var app = angular.module('njcameron.FlatoBs2').constant('BASE_URL', 'http://d129n14rpxc864.cloudfront.net/').constant('FILES_DIR', 'sites/default/files/').constant('BLOG_THUMB_PATH', 'styles/blog_thumbnail/public/').constant('CONFIG_PATH', 'api/v1/config/').constant('BLOG_PATH', 'api/v1/content/blog/').constant('WORK_PATH', 'api/v1/content/work/').constant('TAXONOMY_PATH', 'api/v1/content/category/');
   app.provider('config', [ '$provide', function($provide) {
     var defaults = this.defaults = {

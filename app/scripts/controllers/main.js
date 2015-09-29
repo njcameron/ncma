@@ -40,5 +40,6 @@ app.controller("BlogCtrl", function ($scope, Blog, BlogPostPreProcess) {
 app.controller("BlogPageCtrl", function ($templateCache, $scope, BlogPage, BlogPostPreProcess, $routeParams) {
   BlogPage.query({nodeId: $routeParams.nid}, function (data) {
     $scope.blog = BlogPostPreProcess.processBlog(data[0]);
+    $scope.contentLoaded = true;
   });
 });
