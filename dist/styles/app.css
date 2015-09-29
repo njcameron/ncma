@@ -754,6 +754,9 @@ blockquote {
   margin-top: 0;
   padding-top: 55px;
 }
+#blog .thumbnail {
+  min-height: 450px;
+}
 #blog .blog-thumbnail-wrapper {
   overflow: hidden;
   display: block;
