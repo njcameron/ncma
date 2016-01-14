@@ -1,14 +1,15 @@
 'use strict';
 
 var app = angular.module('njcameron.FlatoBs2')
-    .constant('BASE_URL', "http://d129n14rpxc864.cloudfront.net/")
- // .constant('BASE_URL', "http://ferko.flato.local/")
+  .constant('BASE_URL', "http://d129n14rpxc864.cloudfront.net/")
+  //.constant('BASE_URL', "http://ferko.flato.local/")
   .constant('FILES_DIR', "sites/default/files/")
   .constant('BLOG_THUMB_PATH', "styles/blog_thumbnail/public/")
   .constant('CONFIG_PATH', "api/v1/config/")
   .constant('BLOG_PATH', "api/v1/content/blog/")
   .constant('WORK_PATH', "api/v1/content/work/")
-  .constant('TAXONOMY_PATH', "api/v1/content/category/");
+  .constant('TAXONOMY_PATH', "api/v1/content/category/")
+  .constant('FORMAT_ARG', "?_format=json");
 
 app.provider('config', function ($provide) {
 
@@ -42,28 +43,28 @@ app.provider('config', function ($provide) {
  * API Service.
  */
 // Strings API call.
-app.factory('Strings', function ($resource, BASE_URL, CONFIG_PATH) {
-  return $resource(BASE_URL + CONFIG_PATH);
+app.factory('Strings', function ($resource, BASE_URL, CONFIG_PATH, FORMAT_ARG) {
+  return $resource(BASE_URL + CONFIG_PATH + FORMAT_ARG);
 });
 
 // Work items API call.
-app.factory('Work', function ($resource, BASE_URL, WORK_PATH) {
-  return $resource(BASE_URL + WORK_PATH);
+app.factory('Work', function ($resource, BASE_URL, WORK_PATH, FORMAT_ARG) {
+  return $resource(BASE_URL + WORK_PATH + FORMAT_ARG);
 });
 
 // Blog posts API call.
-app.factory('Blog', function ($resource, BASE_URL, BLOG_PATH) {
-  return $resource(BASE_URL + BLOG_PATH);
+app.factory('Blog', function ($resource, BASE_URL, BLOG_PATH, FORMAT_ARG) {
+  return $resource(BASE_URL + BLOG_PATH + FORMAT_ARG);
 });
 
 // Blog page API call.
-app.factory('BlogPage', function ($resource, BASE_URL, BLOG_PATH) {
-  return $resource(BASE_URL + BLOG_PATH + ':nodeId');
+app.factory('BlogPage', function ($resource, BASE_URL, BLOG_PATH, FORMAT_ARG) {
+  return $resource(BASE_URL + BLOG_PATH + ':nodeId' + FORMAT_ARG);
 });
 
 // Taxonomy term name API call.
-app.factory('Terms', function ($resource, BASE_URL, TAXONOMY_PATH) {
-  return $resource(BASE_URL + TAXONOMY_PATH + ':termId');
+app.factory('Terms', function ($resource, BASE_URL, TAXONOMY_PATH, FORMAT_ARG) {
+  return $resource(BASE_URL + TAXONOMY_PATH + ':termId' + FORMAT_ARG);
 });
 
 /*
