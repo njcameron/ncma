@@ -50,21 +50,6 @@
       $scope.contentLoaded = true;
     });
   } ]);
-  angular.module('njcameron.FlatoBs2').filter('time', function() {
-    return function(obj) {
-      return +new Date(obj);
-    };
-  }).filter('startFrom', function() {
-    return function(obj, index) {
-      return obj && obj.slice(index);
-    };
-  }).filter('htmlToPlaintext', function() {
-    return function(text) {
-      return String(text).replace(/<[^>]+>/gm, '');
-    };
-  }).filter('mysce', [ '$sce', function($sce) {
-    return $sce.trustAsHtml;
-  } ]);
   var app = angular.module('njcameron.FlatoBs2');
   app.directive('directionalHover', function() {
     return {
@@ -115,7 +100,22 @@
       }
     };
   });
-  var app = angular.module('njcameron.FlatoBs2').constant('BASE_URL', 'http://d129n14rpxc864.cloudfront.net/').constant('FILES_DIR', 'sites/default/files/').constant('BLOG_THUMB_PATH', 'styles/blog_thumbnail/public/').constant('CONFIG_PATH', 'api/v1/config/').constant('BLOG_PATH', 'api/v1/content/blog/').constant('WORK_PATH', 'api/v1/content/work/').constant('TAXONOMY_PATH', 'api/v1/content/category/');
+  angular.module('njcameron.FlatoBs2').filter('time', function() {
+    return function(obj) {
+      return +new Date(obj);
+    };
+  }).filter('startFrom', function() {
+    return function(obj, index) {
+      return obj && obj.slice(index);
+    };
+  }).filter('htmlToPlaintext', function() {
+    return function(text) {
+      return String(text).replace(/<[^>]+>/gm, '');
+    };
+  }).filter('mysce', [ '$sce', function($sce) {
+    return $sce.trustAsHtml;
+  } ]);
+  var app = angular.module('njcameron.FlatoBs2').constant('BASE_URL', 'https://d129n14rpxc864.cloudfront.net/').constant('FILES_DIR', 'sites/default/files/').constant('BLOG_THUMB_PATH', 'styles/blog_thumbnail/public/').constant('CONFIG_PATH', 'api/v1/config/').constant('BLOG_PATH', 'api/v1/content/blog/').constant('WORK_PATH', 'api/v1/content/work/').constant('TAXONOMY_PATH', 'api/v1/content/category/').constant('FORMAT_ARG', '?_format=json');
   app.provider('config', [ '$provide', function($provide) {
     var defaults = this.defaults = {
       debug: false,
@@ -135,20 +135,20 @@
       return config;
     };
   } ]);
-  app.factory('Strings', [ '$resource', 'BASE_URL', 'CONFIG_PATH', function($resource, BASE_URL, CONFIG_PATH) {
-    return $resource(BASE_URL + CONFIG_PATH);
+  app.factory('Strings', [ '$resource', 'BASE_URL', 'CONFIG_PATH', 'FORMAT_ARG', function($resource, BASE_URL, CONFIG_PATH, FORMAT_ARG) {
+    return $resource(BASE_URL + CONFIG_PATH + FORMAT_ARG);
   } ]);
-  app.factory('Work', [ '$resource', 'BASE_URL', 'WORK_PATH', function($resource, BASE_URL, WORK_PATH) {
-    return $resource(BASE_URL + WORK_PATH);
+  app.factory('Work', [ '$resource', 'BASE_URL', 'WORK_PATH', 'FORMAT_ARG', function($resource, BASE_URL, WORK_PATH, FORMAT_ARG) {
+    return $resource(BASE_URL + WORK_PATH + FORMAT_ARG);
   } ]);
-  app.factory('Blog', [ '$resource', 'BASE_URL', 'BLOG_PATH', function($resource, BASE_URL, BLOG_PATH) {
-    return $resource(BASE_URL + BLOG_PATH);
+  app.factory('Blog', [ '$resource', 'BASE_URL', 'BLOG_PATH', 'FORMAT_ARG', function($resource, BASE_URL, BLOG_PATH, FORMAT_ARG) {
+    return $resource(BASE_URL + BLOG_PATH + FORMAT_ARG);
   } ]);
-  app.factory('BlogPage', [ '$resource', 'BASE_URL', 'BLOG_PATH', function($resource, BASE_URL, BLOG_PATH) {
-    return $resource(BASE_URL + BLOG_PATH + ':nodeId');
+  app.factory('BlogPage', [ '$resource', 'BASE_URL', 'BLOG_PATH', 'FORMAT_ARG', function($resource, BASE_URL, BLOG_PATH, FORMAT_ARG) {
+    return $resource(BASE_URL + BLOG_PATH + ':nodeId' + FORMAT_ARG);
   } ]);
-  app.factory('Terms', [ '$resource', 'BASE_URL', 'TAXONOMY_PATH', function($resource, BASE_URL, TAXONOMY_PATH) {
-    return $resource(BASE_URL + TAXONOMY_PATH + ':termId');
+  app.factory('Terms', [ '$resource', 'BASE_URL', 'TAXONOMY_PATH', 'FORMAT_ARG', function($resource, BASE_URL, TAXONOMY_PATH, FORMAT_ARG) {
+    return $resource(BASE_URL + TAXONOMY_PATH + ':termId' + FORMAT_ARG);
   } ]);
   app.service('WorkPreProcess', [ 'Terms', 'BASE_URL', 'FILES_DIR', function(Terms, BASE_URL, FILES_DIR) {
     this.processWork = function(workItem) {
