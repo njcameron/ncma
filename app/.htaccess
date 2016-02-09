@@ -7,9 +7,9 @@
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    # Deny crawling of none CDN origin site.
-    # RewriteCond %{HTTP_HOST} ^beta.neilcameron.me$
-    # RewriteRule ^robots\.txt$ /subdomain-robots\.txt
+    RewriteBase /
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
     <IfModule mod_proxy_http.c>
         RewriteCond %{HTTP_USER_AGENT} baiduspider|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|quora\ link\ preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator [NC,OR]
