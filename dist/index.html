@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="njcameron.FlatoBs2">
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="fragment" content="!">
+
+  <title ng-bind-template="{{viewTitle}}"></title>
+
+  <!-- Sets initial viewport load and disables zooming  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Set a shorter title for iOS6 devices when saved to home screen -->
+  <meta name="apple-mobile-web-app-title" content="">
+
+  <link rel="shortcut icon" href="assets/images/favico.png" type="image/png">
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/DirectionAwareHoverEffect/js/jquery.hoverdir.js"></script>
+
+  <!-- bower:css -->
+  <link rel="stylesheet" href="styles/libs.min.css">
+  <!-- endinject -->
+
+  <!-- inject:css -->
+  <link rel="stylesheet" href="styles/app.min.css">
+  <!-- endinject -->
+
+</head>
+
+<body ontouchstart="">
+
+<div id="preload_wrapper">
+  <div id="preloader_3"></div>
+</div>
+
+<div ng-view=""></div>
+
+<!-- bower:js -->
+<script src="scripts/libs.min.js"></script>
+<!-- endinject -->
+
+<!-- inject:js -->
+<script src="scripts/app.min.js"></script>
+<!-- endinject -->
+<script src="scripts/views.tpl.min.js"></script>
+<script src="bower_components/angular-utils-disqus/dirDisqus.js"></script>
+
+</body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62883841-2', 'auto');
+  ga('send', 'pageview');
+</script>
+</html>
