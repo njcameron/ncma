@@ -1,8 +1,8 @@
 (function(window, document, undefined) {
   'use strict';
   angular.module('njcameron.FlatoBs2', [ 'ngResource', 'ngAnimate', 'ngRoute', 'ngSanitize', 'smoothScroll', 'mgcrea.ngStrap', 'angular-parallax', 'viewhead', 'angularUtils.directives.dirDisqus' ]).constant('version', 'v0.1.0').config([ '$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-    $locationProvider.html5Mode(false);
     $locationProvider.hashPrefix('!');
+    $locationProvider.html5Mode(false);
     $routeProvider.when('/', {
       templateUrl: 'views/home.html',
       controller: 'MainCtrl'
