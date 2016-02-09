@@ -30,6 +30,11 @@ angular.module('njcameron.FlatoBs2',
         controller: "BlogPageCtrl"
       })
 
+      .when("/blog/post/:nid", {
+        templateUrl: "views/blog-page.html",
+        controller: "BlogPageCtrl"
+      })
+
       .otherwise({
         redirectTo: '/'
       });
