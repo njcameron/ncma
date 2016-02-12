@@ -24,6 +24,36 @@
     });
   };
   var app = angular.module('njcameron.FlatoBs2');
+  app.controller('MainCtrl', [ '$scope', 'Strings', function($scope, Strings) {
+    Strings.get(function(data) {
+      $scope.start = data;
+    });
+  } ]);
+  app.controller('WorkCtrl', [ '$scope', 'Work', 'WorkPreProcess', function($scope, Work, WorkPreProcess) {
+    Work.query(function(data) {
+      $scope.works = data;
+      angular.forEach($scope.works, function(value, index) {
+        $scope.works[index] = WorkPreProcess.processWork(value);
+      });
+    });
+  } ]);
+  app.controller('BlogCtrl', [ '$scope', 'Blog', 'BlogPostPreProcess', function($scope, Blog, BlogPostPreProcess) {
+    Blog.query(function(data) {
+      $scope.blogs = data;
+      angular.forEach($scope.blogs, function(value, index) {
+        $scope.blogs[index] = BlogPostPreProcess.processBlog(value);
+      });
+    });
+  } ]);
+  app.controller('BlogPageCtrl', [ '$templateCache', '$scope', 'BlogPage', 'BlogPostPreProcess', '$routeParams', function($templateCache, $scope, BlogPage, BlogPostPreProcess, $routeParams) {
+    BlogPage.query({
+      nodeId: $routeParams.nid
+    }, function(data) {
+      $scope.blog = BlogPostPreProcess.processBlog(data[0]);
+      $scope.contentLoaded = true;
+    });
+  } ]);
+  var app = angular.module('njcameron.FlatoBs2');
   app.directive('directionalHover', function() {
     return {
       restrict: 'A',
@@ -73,36 +103,6 @@
       }
     };
   });
-  var app = angular.module('njcameron.FlatoBs2');
-  app.controller('MainCtrl', [ '$scope', 'Strings', function($scope, Strings) {
-    Strings.get(function(data) {
-      $scope.start = data;
-    });
-  } ]);
-  app.controller('WorkCtrl', [ '$scope', 'Work', 'WorkPreProcess', function($scope, Work, WorkPreProcess) {
-    Work.query(function(data) {
-      $scope.works = data;
-      angular.forEach($scope.works, function(value, index) {
-        $scope.works[index] = WorkPreProcess.processWork(value);
-      });
-    });
-  } ]);
-  app.controller('BlogCtrl', [ '$scope', 'Blog', 'BlogPostPreProcess', function($scope, Blog, BlogPostPreProcess) {
-    Blog.query(function(data) {
-      $scope.blogs = data;
-      angular.forEach($scope.blogs, function(value, index) {
-        $scope.blogs[index] = BlogPostPreProcess.processBlog(value);
-      });
-    });
-  } ]);
-  app.controller('BlogPageCtrl', [ '$templateCache', '$scope', 'BlogPage', 'BlogPostPreProcess', '$routeParams', function($templateCache, $scope, BlogPage, BlogPostPreProcess, $routeParams) {
-    BlogPage.query({
-      nodeId: $routeParams.nid
-    }, function(data) {
-      $scope.blog = BlogPostPreProcess.processBlog(data[0]);
-      $scope.contentLoaded = true;
-    });
-  } ]);
   angular.module('njcameron.FlatoBs2').filter('time', function() {
     return function(obj) {
       return +new Date(obj);
