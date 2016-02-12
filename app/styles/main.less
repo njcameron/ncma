@@ -529,14 +529,14 @@ blockquote {
  * Blog post page.
  */
 .blog-post-image {
-  height:450px;
+  height:650px;
   margin-top: 0px;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .blog-post-container {
-  margin: -195px auto auto auto;
+  margin: -242px auto auto auto;
   background-color: white;
   float: none;
   padding: 10px 50px 10px 50px;
@@ -561,10 +561,25 @@ blockquote {
 }
 
 /**
+ * Responsive blog page for mobile + tablet.
+ */
+@media (max-width: @screen-md-max) {
+  .blog-post-container {
+    margin: -282px auto auto auto;
+  }
+
+  .go-back {
+    position: relative;
+    margin-top: 30px;
+  }
+}
+
+/**
  * Responsive blog page for mobile.
  */
 @media (max-width: @screen-xs-max) {
   .blog-post-container {
+    margin: -430px auto auto auto;
     padding: 10px 30px 10px 30px;
 
     h1 {
@@ -574,16 +589,6 @@ blockquote {
     h5 {
       font-size: 1.1em;
     }
-  }
-}
-
-/**
- * Responsive blog page for mobile + tablet.
- */
-@media (max-width: @screen-md-max) {
-  .go-back {
-    position: relative;
-    margin-top: 30px;
   }
 }
 
